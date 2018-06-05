@@ -28,13 +28,13 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-03T00:37:52-04:00   8663e17d15e94386b5d6fb7c3e44b0bf
 assets/timber.scss.liquid:
-  development: 2018-06-03T17:56:52-04:00   e31c25bf186e10acf6dec1bcd1a16ba0
+  development: 2018-06-04T21:45:17-04:00   99dc479f00c11406269fa9d3ccb9d813
 config/settings_data.json:
   development: 2018-06-03T01:10:55-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
   development: 2018-06-03T00:37:54-04:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2018-06-03T17:17:57-04:00   ef8290fed814390d8427aa6d6525ac93
+  development: 2018-06-04T21:37:54-04:00   aa50732aea31170a76e8702d339caa48
 locales/de.json:
   development: 2018-06-03T00:37:52-04:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -63,6 +63,10 @@ snippets/collection-sorting.liquid:
   development: 2018-06-03T00:37:52-04:00   d369d2d4697110800946220909e8ecf8
 snippets/comment.liquid:
   development: 2018-06-03T00:37:52-04:00   c766e42be8a74e05533d0e5a0e3a9ce3
+snippets/fact.liquid:
+  development: 2018-06-04T21:02:37-04:00   264233ec6042533e3265b8f4d75ac23d
+snippets/hero.liquid:
+  development: 2018-06-04T21:44:53-04:00   40baf3534a2f24703630ace0a5e62dca
 snippets/oldIE-js.liquid:
   development: 2018-06-03T00:37:52-04:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:
@@ -72,7 +76,7 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:37:53-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-06-03T17:18:58-04:00   ac6e4dd073e5539bd2c37d919efc126f
+  development: 2018-06-04T21:39:28-04:00   4c0e28392e067c27d4e9910dd1e08fc5
 snippets/quotes.liquid:
   development: 2018-06-03T17:51:53-04:00   c273939adf269ba575ab30e2a7ef1113
 snippets/respond.liquid:
@@ -114,7 +118,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2018-06-03T00:37:53-04:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:
-  development: 2018-06-03T17:43:22-04:00   f00cfa96c39bb3c73e3049a4f59052de
+  development: 2018-06-04T21:16:23-04:00   6bdd321aa3f5d4cb32050ed35363e15e
 templates/list-collections.liquid:
   development: 2018-06-03T00:37:54-04:00   380da281c4820602d95334029b03aa84
 templates/page.contact.liquid:

@@ -7,9 +7,6 @@
     - http://docs.shopify.com/themes/liquid-variables/global
 {% endcomment %}
 
-
-<h2>{{ 'homepage.sections.frontpage_title' | t }}</h2>
-
 {% comment %}
   Use class grid-uniform to have evenly sized columns clear
   each other properly at each breakpoint.
@@ -27,7 +24,9 @@
       Example:
         - {% assign grid_item_width = 'large--one-third medium--one-half' %}
     {% endcomment %}
+    {% include 'hero' %}
     {% include 'product-grid-item' %}
+    {% include 'fact' %}
     {% include 'quotes' %}
     {% include 'about' %}
 
