@@ -831,6 +831,7 @@ h5 {
 
 h6 {
   font-size: em(14px);
+  padding-right: em(20px);
 }
 
 p {
@@ -2196,7 +2197,7 @@ label.error {
   color: $colorFooterText;
 
   @include at-query ($min, $large) {
-    padding: ($gutter * 2) 0;
+    padding: ($gutter / 2) 0;
   }
 }
 
@@ -3746,4 +3747,16 @@ label.error {
 
 .ingredient-detail {
   margin-bottom: 20px;
+}
+
+.footer-links {
+  display: inherit;
+}
+
+.copyright {
+  float: right!important;
+}
+
+.inline {
+  display: inline;
 }

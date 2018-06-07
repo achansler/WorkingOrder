@@ -28,13 +28,13 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-03T00:37:52-04:00   8663e17d15e94386b5d6fb7c3e44b0bf
 assets/timber.scss.liquid:
-  development: 2018-06-06T21:13:46-04:00   a1ce1155363b3b74e9e6029ff641ca5e
+  development: 2018-06-06T22:32:49-04:00   ac7b8179894c915ce42ad1e977282a0d
 config/settings_data.json:
   development: 2018-06-03T01:10:55-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
   development: 2018-06-03T00:37:54-04:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2018-06-04T21:37:54-04:00   aa50732aea31170a76e8702d339caa48
+  development: 2018-06-06T22:26:24-04:00   e899834ac18b30cceb2153cfa9cb5eee
 locales/de.json:
   development: 2018-06-03T00:37:52-04:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
