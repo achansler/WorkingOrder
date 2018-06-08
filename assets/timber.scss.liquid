@@ -54,7 +54,8 @@
 ==============================================================================*/
 $viewportIncrement: 1px;
 
-$small: 480px;
+// $small: 480px;
+$small: 540px;
 $medium: 768px;
 $large: 769px;
 
@@ -291,7 +292,6 @@ $max: max-width;
 html, body {
   padding: 0;
   margin: 0;
-  background-color: red;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
@@ -814,7 +814,7 @@ h1 {
 }
 
 h2 {
-  font-size: em(35px);
+  font-size: em(45px);
 }
 
 h3 {
@@ -2566,10 +2566,52 @@ label.error {
   margin-left: auto;
 }
 
+// Mobile Styles START
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
   }
+
+  h1{
+    font-size: em(70px);
+  }
+
+  h2{
+    font-size: em(30px);
+  }
+
+  h3{
+    font-size: em(20px);
+  }
+
+  h4{
+    font-size: em(20px);
+  }
+
+  h4{
+    font-size: em(16px);
+  }
+
+  h4{
+    font-size: em(14px);
+  }
+
+  p{
+    font-size: em(16px);
+  }
+
+  .red {
+    color: red;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .explainer-text {
+    padding: 20px;
+  }
+
 }
 
 @media (min-width: 768px) {
@@ -2584,10 +2626,135 @@ label.error {
   }
 }
 
+//DESKTOP STYLES
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
   }
+
+  h1 {
+    font-size: em(70px);
+  }
+
+  h2 {
+    font-size: em(45px);
+  }
+
+  h3 {
+    font-size: em(25px);
+  }
+
+  h4 {
+    font-size: em(20px);
+  }
+
+  h5 {
+    font-size: em(16px);
+  }
+
+  h6 {
+    font-size: em(14px);
+    padding-right: em(20px);
+  }
+
+  p {
+    font-size: em(18px);
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .sticky {
+    position: fixed;
+    background-color: red;
+  }
+
+  .cart-big {
+    font-size: 1.250em;
+  }
+
+  .about {
+    margin: 0 auto;
+  }
+
+  .image {
+    width: 100%;
+  }
+
+  .index-front{
+    z-index: 1;
+  }
+
+  .padding-fact{
+    padding-left: 80px;
+  }
+
+  .hero {
+    background: url('https://cdn.shopify.com/s/files/1/0029/2349/5490/files/hero-images.png?12117766935876502050');
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+
+  .main-logo {
+    padding: 300px 0px;
+  }
+
+  .benefits-list {
+    font-weight: 300;
+  }
+
+  .benefits {
+    background: url('https://cdn.shopify.com/s/files/1/0029/2349/5490/files/what_does_it_do_images.png?12117766935876502050');
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 100px 0px;
+  }
+
+  .explainer-text {
+    background-color: #ffffff;
+    padding: 50px 50px;
+  }
+
+  .section{
+    margin: 50px 0px;
+  }
+
+  .gray {
+    color: #7F7F7F;
+  }
+
+  .ingredient-paragraph {
+    margin-left: 70px;
+  }
+
+  .ingredient-detail {
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    display: inherit;
+  }
+
+  .copyright {
+    float: right!important;
+  }
+
+  .inline {
+    display: inline;
+  }
+
+  .text-background-img {
+    position: absolute;
+    margin-top: 205px;
+
+  }
+
+.fact-text {
+  margin: 115px 0px;
+}
+
 }
 
 .container-fluid {
@@ -3669,94 +3836,4 @@ label.error {
   .offset-xl-11 {
     margin-left: 91.666667%;
   }
-}
-
-
-//custom styles start here//
-
-.sticky {
-  position: fixed;
-  background-color: red;
-}
-
-.cart-big {
-  font-size: 1.250em;
-}
-
-.about {
-  margin: 0 auto;
-}
-
-.image {
-  width: 100%;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.index-front{
-  z-index: 1;
-}
-
-.padding-fact{
-  padding-left: 80px;
-}
-
-.hero {
-  background: url('https://cdn.shopify.com/s/files/1/0029/2349/5490/files/hero-images.png?12117766935876502050');
-  background-repeat: no-repeat;
-  background-position: right top;
-}
-
-.main-logo {
-  padding: 300px 0px;
-}
-
-.benefits-list {
-  font-weight: 300;
-}
-
-.benefits {
-  background: url('https://cdn.shopify.com/s/files/1/0029/2349/5490/files/what_does_it_do_images.png?12117766935876502050');
-  background-repeat: no-repeat;
-  background-position: right top;
-  padding: 100px 0px;
-}
-
-.explainer-text {
-  background-color: #ffffff;
-  padding: 50px;
-}
-
-.section{
-  margin: 50px 0px;
-}
-
-.how-image {
-  margin-top: 205px;
-}
-
-.gray {
-  color: #7F7F7F;
-}
-
-.ingredient-paragraph {
-  margin-left: 70px;
-}
-
-.ingredient-detail {
-  margin-bottom: 20px;
-}
-
-.footer-links {
-  display: inherit;
-}
-
-.copyright {
-  float: right!important;
-}
-
-.inline {
-  display: inline;
 }
