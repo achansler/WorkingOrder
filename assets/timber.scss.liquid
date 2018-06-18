@@ -56,8 +56,8 @@ $viewportIncrement: 1px;
 
 // $small: 480px;
 $small: 540px;
-$medium: 768px;
-$large: 769px;
+$medium: 770px;
+$large: 771px;
 
 $postSmall: $small + $viewportIncrement;
 $preMedium: $medium - $viewportIncrement;
@@ -810,15 +810,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
-  font-size: em(70px);
+  font-size: em(40px);
 }
 
 h2 {
-  font-size: em(45px);
+  font-size: em(30px);
 }
 
 h3 {
-  font-size: em(25px);
+  font-size: em(18px);
 }
 
 h4 {
@@ -831,11 +831,10 @@ h5 {
 
 h6 {
   font-size: em(14px);
-  padding-right: em(20px);
 }
 
 p {
-  font-size: em(18px);
+  font-size: em(16px);
 }
 
 
@@ -2557,6 +2556,43 @@ label.error {
 
 {% endif %} // settings.ajax_cart_method
 
+// CUSTOM STYLES BEGIN //
+.absolute {
+  position: absolute;
+}
+
+.image {
+  width: 100%;
+}
+
+.index-front{
+  z-index: 1;
+}
+
+.explainer-text {
+  background-color: #ffffff;
+  padding: 20px 20px;
+}
+
+.section{
+  margin: 50px 0px;
+}
+
+.text-background-img {
+  position: absolute;
+  margin-top: 205px;
+  visibility: hidden;
+}
+
+.ingredient-paragraph {
+  margin: 20px;
+}
+
+.fact-text {
+  margin: 50px 0px;
+}
+
+
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
 .container {
   width: 100%;
@@ -2572,65 +2608,12 @@ label.error {
     max-width: 540px;
   }
 
-  h1{
-    font-size: em(70px);
-  }
-
-  h2{
-    font-size: em(30px);
-  }
-
-  h3{
-    font-size: em(20px);
-  }
-
-  h4{
-    font-size: em(20px);
-  }
-
-  h4{
-    font-size: em(16px);
-  }
-
-  h4{
-    font-size: em(14px);
-  }
-
-  p{
-    font-size: em(16px);
-  }
-
-  .red {
-    color: red;
-  }
-
-  .hide-mobile {
-    display: none;
-  }
-
-  .explainer-text {
-    padding: 20px;
-  }
-
 }
 
+//DESKTOP STYLES START
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-//DESKTOP STYLES
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
   }
 
   h1 {
@@ -2662,15 +2645,6 @@ label.error {
     font-size: em(18px);
   }
 
-  .absolute {
-    position: absolute;
-  }
-
-  .sticky {
-    position: fixed;
-    background-color: red;
-  }
-
   .cart-big {
     font-size: 1.250em;
   }
@@ -2679,23 +2653,10 @@ label.error {
     margin: 0 auto;
   }
 
-  .image {
-    width: 100%;
-  }
-
-  .index-front{
-    z-index: 1;
-  }
-
   .padding-fact{
     padding-left: 80px;
   }
 
-  .hero {
-    background: url('https://cdn.shopify.com/s/files/1/0029/2349/5490/files/hero-images.png?12117766935876502050');
-    background-repeat: no-repeat;
-    background-position: right top;
-  }
 
   .main-logo {
     padding: 300px 0px;
@@ -2713,12 +2674,7 @@ label.error {
   }
 
   .explainer-text {
-    background-color: #ffffff;
     padding: 50px 50px;
-  }
-
-  .section{
-    margin: 50px 0px;
   }
 
   .gray {
@@ -2737,23 +2693,50 @@ label.error {
     display: inherit;
   }
 
-  .copyright {
-    float: right!important;
-  }
-
   .inline {
     display: inline;
   }
 
   .text-background-img {
-    position: absolute;
     margin-top: 205px;
-
   }
 
 .fact-text {
   margin: 115px 0px;
 }
+
+.center {
+  text-align: center;
+}
+
+#marquee {
+ background: none;
+ overflow: hidden;
+ white-space: nowrap;
+}
+
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .text-background-img {
+    position: absolute;
+    margin-top: 205px;
+    visibility: visible;
+  }
+
+  .copyright {
+    float: right!important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 
 }
 
