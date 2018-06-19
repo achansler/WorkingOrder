@@ -28,7 +28,7 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-17T20:10:58-04:00   5d119e19cb8dfe9a04c36f42dbf83e7d
 assets/timber.scss.liquid:
-  development: 2018-06-17T20:48:19-04:00   330aba1a9dd40513d83020ff5bf7f188
+  development: 2018-06-18T21:38:02-04:00   3be8ad000c63bb5658be770393de5e2f
 config/settings_data.json:
   development: 2018-06-03T01:10:55-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
@@ -68,7 +68,7 @@ snippets/comment.liquid:
 snippets/fact.liquid:
   development: 2018-06-08T17:55:07-04:00   9e954bbfacb14993516983b34f4d6a69
 snippets/hero.liquid:
-  development: 2018-06-17T20:51:39-04:00   a9a94129dc0312df650841264631e924
+  development: 2018-06-18T21:37:56-04:00   f7e1256c595fcbe29db8bf15090c011b
 snippets/how.liquid:
   development: 2018-06-07T21:32:43-04:00   f7c596433a8b5d364be476b46cb3ec44
 snippets/ingredients.liquid:
