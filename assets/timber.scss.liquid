@@ -792,7 +792,7 @@ textarea,
 button,
 select {
   font-size: $baseFontSize;
-  line-height: 1.6;
+  line-height: 1.4;
   font-family: $bodyFontStack;
   color: $colorTextBody;
   font-weight: 300;
@@ -810,6 +810,10 @@ h1, h2, h3, h4, h5, h6 {
   a {
     text-decoration: none;
     font-weight: inherit;
+  }
+
+  p {
+    line-height: 1.4;
   }
 }
 
@@ -1053,12 +1057,16 @@ hr {
   }
 
   // Add some top margin to headers from the rich text editor
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h6 {
     margin-top: 2em;
 
     &:first-child {
       margin-top: 0;
     }
+
+  h5 {
+    margin-top: 0em;
+  }
 
     a {
       text-decoration: none;
@@ -2617,6 +2625,15 @@ label.error {
   margin: 20px;
 }
 
+#price-row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.margin-bottom-none {
+  margin-bottom: 0px;
+}
+
 .fact-text {
   margin: 50px 0px;
 }
@@ -2630,6 +2647,14 @@ label.error {
 .marquee-boundry {
   max-width: 100%;
 }
+
+.checkout-btn {
+  font-size: em(50px);
+  background-color: transparent;
+  color: #222222;
+  font-weight: 700;
+}
+
 
 
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
@@ -2685,7 +2710,7 @@ label.error {
   }
 
   .test {
-    background-color: red;
+    background-color: white;
   }
 
   .do-stuff-copy {
@@ -2754,8 +2779,28 @@ label.error {
     margin: 0px 0px 50px 0px;
   }
 
+  #no-padding {
+    padding-left: 0px;
+  }
+
+  .margin-25 {
+    margin: 0px 0px 0px 25px;
+  }
+
+  .margin-60 {
+    margin: 60px 0px 0px 0px;
+  }
+
   .margin-100 {
     margin: 100px 0px 0px 0px;
+  }
+
+  .product-title-spacing {
+    padding: 65px 0px 0px 0px;
+  }
+
+  .product-description-padding {
+    margin: 175px 0px 0px 25px;
   }
 
   .margin-320 {
@@ -2773,6 +2818,14 @@ label.error {
 
   .margin-450 {
     margin: 450px 0px 0px 0px;
+  }
+
+  #quotes-1 {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .quotes {
+    margin: 65px 0px 65px 0px;
   }
 
   .ingredient-row-2 {
