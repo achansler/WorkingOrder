@@ -1099,6 +1099,8 @@ a,
 a:hover,
 a:focus {
   color: $colorLinkHover;
+  text-decoration: underline;
+  text-decoration-style: wavy;
 }
 
 button {
@@ -2655,7 +2657,31 @@ label.error {
   font-weight: 700;
 }
 
+.repeat {
+  white-space: nowrap;
+   width: 100%;
+   overflow: hidden;
+   text-overflow: clipped;
+}
 
+.vertical {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari 3-8 */
+  transform: rotate(90deg);
+}
+
+.push-right {
+  right: 0px;
+}
+
+.fine-print {
+  padding: 15px 0px 8px 0px;
+  font-size: em(12px);
+}
+
+.ingredient-image {
+  position: relative;
+}
 
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
 .container {
@@ -2856,6 +2882,10 @@ label.error {
     height: 1px;
     width: 100%;
     margin-bottom: 150px;
+  }
+
+  .ingredient-image {
+    width: 33%;
   }
 
 }
