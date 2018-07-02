@@ -805,7 +805,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $headerFontStack;
   font-weight: $headerFontWeight;
   margin: 0 0 0.5em;
-  line-height: 1.4;
 
   a {
     text-decoration: none;
@@ -815,6 +814,14 @@ h1, h2, h3, h4, h5, h6 {
   p {
     line-height: 1.4;
   }
+}
+
+h1 {
+  line-height: 1;
+}
+
+h2, h3, h4, h5, h6 {
+  line-height: 1.4;
 }
 
 /*================ Use em() Sass function to declare font-size ================*/
@@ -1100,7 +1107,6 @@ a:hover,
 a:focus {
   color: $colorLinkHover;
   text-decoration: underline;
-  text-decoration-style: wavy;
 }
 
 button {
@@ -2219,7 +2225,7 @@ label.error {
 ==============================================================================*/
 .site-footer {
   background-color: $colorFooterBg;
-  padding: $gutter 0;
+  padding: $gutter;
   color: $colorFooterText;
 
   @include at-query ($min, $large) {
@@ -2284,13 +2290,14 @@ label.error {
 .product-single__photos,
 .product-single__thumbnails {
   a, img {
-    display: block;
+    display: inline;
     margin: 0 auto;
   }
 
   li {
-    margin-bottom: $gutter;
+    margin-bottom: $gutter/2;
   }
+
 }
 
 
@@ -2502,10 +2509,10 @@ label.error {
 /*================ Quantity Selectors ================*/
 .js-qty {
   position: relative;
-  margin-bottom: 1em;
-  max-width: 100px;
+  vertical-align: baseline;
   min-width: 75px;
   overflow: visible;
+  max-width: 100px;
 
   input {
     display: block;
@@ -2538,12 +2545,12 @@ label.error {
 
 .js-qty__adjust--plus {
   right: 0;
-  border-left: 1px solid $colorBorder;
+  border-left: 1px solid transparent;
 }
 
 .js-qty__adjust--minus {
   left: 0;
-  border-right: 1px solid $colorBorder;
+  border-right: 1px solid transparent;
 }
 
 /*================ Quantity Selectors in Ajax Cart ================*/
@@ -2584,6 +2591,22 @@ label.error {
 {% endif %} // settings.ajax_cart_method
 
 // CUSTOM STYLES BEGIN //
+
+ul {
+  list-style-type: none;
+}
+
+.thumbnail-grid {
+  top: 25%;
+}
+
+.thumbnail-styles {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #747474;
+}
+
 .absolute {
   position: absolute;
 }
@@ -2628,8 +2651,7 @@ label.error {
 }
 
 #price-row {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin: 30px 0px 30px 0px;
 }
 
 .margin-bottom-none {
@@ -2657,6 +2679,8 @@ label.error {
   font-weight: 700;
 }
 
+button:focus {outline:0 !important;}
+
 .repeat {
   white-space: nowrap;
    width: 100%;
@@ -2681,6 +2705,10 @@ label.error {
 
 .ingredient-image {
   position: relative;
+}
+
+.footer-link {
+  color: $colorFooterText;
 }
 
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
@@ -2728,7 +2756,6 @@ label.error {
 
   h6 {
     font-size: em(14px);
-    padding-right: em(20px);
   }
 
   p {
@@ -2783,6 +2810,7 @@ label.error {
 
   .inline {
     display: inline;
+    padding-right: em(20px);
   }
 
   .text-background-img {
@@ -2807,6 +2835,7 @@ label.error {
 
   #no-padding {
     padding-left: 0px;
+    padding-right: 0px;
   }
 
   .margin-25 {
@@ -2821,8 +2850,9 @@ label.error {
     margin: 100px 0px 0px 0px;
   }
 
-  .product-title-spacing {
-    padding: 65px 0px 0px 0px;
+  .product-title {
+    font-weight: 300;
+    padding: 60px 0px 0px 0px;
   }
 
   .product-description-padding {
@@ -2834,7 +2864,7 @@ label.error {
   }
 
   .stamp-spacing {
-    margin: 380px 0px 0px 0px;
+    margin: 370px 0px 0px 0px;
     padding-right: 60px;
   }
 
@@ -2886,6 +2916,14 @@ label.error {
 
   .ingredient-image {
     width: 33%;
+  }
+
+  .add-row {
+    margin-top: 30px;
+  }
+
+  .footer-section {
+    margin: 100px 0px 100px 0px;
   }
 
 }
