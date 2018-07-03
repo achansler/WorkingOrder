@@ -82,7 +82,7 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:40:23-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-07-01T19:53:03-04:00   31a29538237fb515b05177cdf468a3c3
+  development: 2018-07-02T19:38:12-04:00   33838344b9a31ec13526c0da101ecd14
 snippets/quotes.liquid:
   development: 2018-06-30T20:49:36-04:00   7b9d968783f5f2ed945fe3bebc3c2e98
 snippets/respond.liquid:
