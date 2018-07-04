@@ -826,7 +826,7 @@ h2, h3, h4, h5, h6 {
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
-  font-size: em(40px);
+  font-size: em(30px);
 }
 
 h2 {
@@ -2591,6 +2591,25 @@ label.error {
 {% endif %} // settings.ajax_cart_method
 
 // CUSTOM STYLES BEGIN //
+.hero-height-xs {
+  height: 600px;
+}
+
+.stamp-spacing-xs {
+  margin-top: 335px;
+}
+
+.second-row-margin-xs {
+  margin-top: 10%;
+}
+
+.hero-padding-xs {
+  top: 25%;
+}
+
+.first-hero-image-xs {
+  margin-top: $gutter;
+}
 
 ul {
   list-style-type: none;
@@ -2726,6 +2745,10 @@ button:focus {outline:0 !important;}
     max-width: 540px;
   }
 
+  .hero-height-lg {
+    height: 800px;
+  }
+
 }
 
 //DESKTOP STYLES START
@@ -2760,6 +2783,10 @@ button:focus {outline:0 !important;}
 
   p {
     font-size: em(25px);
+  }
+
+  .first-hero-image-lg {
+    margin-top: $gutter * 2;
   }
 
   .test {
@@ -2846,7 +2873,7 @@ button:focus {outline:0 !important;}
     margin: 60px 0px 0px 0px;
   }
 
-  .margin-100 {
+  .margin-100-lg {
     margin: 100px 0px 0px 0px;
   }
 
@@ -2859,11 +2886,11 @@ button:focus {outline:0 !important;}
     margin: 175px 0px 0px 25px;
   }
 
-  .margin-320 {
-    margin: 320px 0px 0px 0px;
+  .hero-padding-lg {
+    top: 43%;
   }
 
-  .stamp-spacing {
+  .stamp-spacing-lg {
     margin: 370px 0px 0px 0px;
     padding-right: 60px;
   }
