@@ -717,7 +717,7 @@ html {
 
 body {
   // background-color: $colorBody; CHANGE THIS IN THE EDITOR DELETE HARD Code
-  background-color: #F9F6F5;
+  background-color: #FEFDFD;
 }
 
 [tabindex='-1']:focus {
@@ -836,7 +836,7 @@ h2 {
 }
 
 h3 {
-  font-size: em(18px);
+  font-size: em(20px);
 }
 
 h4 {
@@ -852,7 +852,7 @@ h6 {
 }
 
 p {
-  font-size: em(16px);
+  font-size: em(18px);
 }
 
 .italic {
@@ -2591,6 +2591,27 @@ label.error {
 {% endif %} // settings.ajax_cart_method
 
 // CUSTOM STYLES BEGIN //
+
+.section-xs {
+  padding: 50px 0px;
+}
+
+.hide-xs {
+  display: none;
+}
+
+.background-xs {
+  padding: 50px 0px 25px 0px;
+}
+
+.background-how-xs {
+  padding: 0px 0px 50px 0px;
+}
+
+.top-skewed-copy-padding {
+  margin: 0px;
+}
+
 .hero-height-xs {
   height: 600px;
 }
@@ -2730,6 +2751,10 @@ button:focus {outline:0 !important;}
   color: $colorFooterText;
 }
 
+.ingredient-blurb {
+  padding: 70px 0px 0px 40px;
+}
+
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
 .container {
   width: 100%;
@@ -2739,7 +2764,6 @@ button:focus {outline:0 !important;}
   margin-left: auto;
 }
 
-// Mobile Styles START
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -2800,10 +2824,6 @@ button:focus {outline:0 !important;}
   .top-skewed-copy{
     margin: 0px;
     padding: 175px 0px 0px 0px;
-  }
-
-  .top-skewed-copy-padding {
-    margin: 0px;
   }
 
   .cart-big {
@@ -2934,8 +2954,7 @@ button:focus {outline:0 !important;}
   }
 
   .spacer {
-    // background-color: $colorBody; CHANGE THIS IN THE EDITOR DELETE HARD Code
-    background-color: #F9F6F5;
+    background-color: #FEFDFD;
     height: 1px;
     width: 100%;
     margin-bottom: 150px;
@@ -2969,6 +2988,20 @@ button:focus {outline:0 !important;}
   .copyright {
     float: right!important;
   }
+
+  .hide-xs {
+    display: inline;
+  }
+
+  .background-xs {
+    padding: 0px 0px 0px 0px;
+  }
+
+  .background-how-xs {
+    padding: 0px 0px 0px 0px;
+  }
+
+
 }
 
 @media (min-width: 1200px) {

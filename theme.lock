@@ -28,7 +28,7 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-28T19:39:43-04:00   5d119e19cb8dfe9a04c36f42dbf83e7d
 assets/timber.scss.liquid:
-  development: 2018-07-04T12:49:05-04:00   af687d12b229baa6171dedac15443842
+  development: 2018-07-05T21:26:23-04:00   667703d0428e19dfbad3944feeb4517c
 config/settings_data.json:
   development: 2018-06-22T23:20:04-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
@@ -52,7 +52,7 @@ snippets/about.liquid:
 snippets/ajax-cart-template.liquid:
   development: 2018-06-03T00:40:23-04:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/benefits.liquid:
-  development: 2018-07-03T22:31:36-04:00   b3ea0d892a012cac8ef5a2ee29417965
+  development: 2018-07-05T17:40:11-04:00   fe974fe9e0adb7ba070b66e495958554
 snippets/blank.liquid:
   development: 2018-06-03T17:31:20-04:00   78b0ae06024396cde82801369f6962f0
 snippets/blog-sidebar.liquid:
@@ -70,9 +70,9 @@ snippets/fact.liquid:
 snippets/hero.liquid:
   development: 2018-07-04T12:43:25-04:00   6b8ebb0bba24781d184ff36f3e2896dc
 snippets/how.liquid:
-  development: 2018-07-01T17:08:35-04:00   18dca3eb36ac4b2a6a9023ec0f18650b
+  development: 2018-07-05T17:49:36-04:00   53506a3189afd709d93fbb87ff59893b
 snippets/ingredients.liquid:
-  development: 2018-07-01T17:09:08-04:00   4fcaa5a27fb131adeadcb8910e040eef
+  development: 2018-07-05T20:46:23-04:00   c9e53fb8bb32c2a1996ec8f748328522
 snippets/oldIE-js.liquid:
   development: 2018-06-03T00:40:23-04:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:
@@ -84,7 +84,7 @@ snippets/onboarding-featured-products.liquid:
 snippets/product-grid-item.liquid:
   development: 2018-07-02T19:38:12-04:00   33838344b9a31ec13526c0da101ecd14
 snippets/quotes.liquid:
-  development: 2018-07-04T13:50:29-04:00   8f15fd4791512e9259eb1c43a8af88fb
+  development: 2018-07-05T21:03:09-04:00   a8ca632f262317e052afc5255edc333d
 snippets/respond.liquid:
   development: 2018-06-03T00:40:23-04:00   ca6abf0635dc2ad8c6bd377f83c79f6b
 snippets/search-bar.liquid:
