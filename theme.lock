@@ -28,7 +28,7 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-28T19:39:43-04:00   5d119e19cb8dfe9a04c36f42dbf83e7d
 assets/timber.scss.liquid:
-  development: 2018-07-07T23:26:00-04:00   c8981b88e00235af6c1f23c671b0230b
+  development: 2018-07-08T15:50:36-04:00   0f428e39a03841e29b305a02a3bc2a99
 config/settings_data.json:
   development: 2018-06-22T23:20:04-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
@@ -48,11 +48,11 @@ locales/pt-BR.json:
 locales/pt-PT.json:
   development: 2018-06-22T23:19:59-04:00   6ddf443592f389ff55aa739569736f47
 snippets/about.liquid:
-  development: 2018-07-07T22:20:05-04:00   7ffa38dcb3375190ab5244511ed4dc55
+  development: 2018-07-08T15:54:16-04:00   76e520800de40c29a397d6931b29ebf6
 snippets/ajax-cart-template.liquid:
   development: 2018-06-03T00:40:23-04:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/benefits.liquid:
-  development: 2018-07-07T22:14:20-04:00   51c404ec4bc52974e17ca3af77c5f574
+  development: 2018-07-08T15:30:34-04:00   3ce5cc65412a74c3be3b7be67a6a4e65
 snippets/blank.liquid:
   development: 2018-06-03T17:31:20-04:00   78b0ae06024396cde82801369f6962f0
 snippets/blog-sidebar.liquid:
@@ -68,11 +68,11 @@ snippets/comment.liquid:
 snippets/fact.liquid:
   development: 2018-06-23T11:21:36-04:00   9e954bbfacb14993516983b34f4d6a69
 snippets/hero.liquid:
-  development: 2018-07-04T12:43:25-04:00   6b8ebb0bba24781d184ff36f3e2896dc
+  development: 2018-07-08T15:23:16-04:00   a48e439b3f2e27a6b3717cc21e9bb009
 snippets/how.liquid:
   development: 2018-07-07T23:14:58-04:00   1deb2c3cc801e99874acd36626ad248b
 snippets/ingredients.liquid:
-  development: 2018-07-07T14:39:30-04:00   2c2acea519a17bf14aea68bc42140985
+  development: 2018-07-08T15:01:48-04:00   3d45cd27123cc4802a983b0db1c025bd
 snippets/oldIE-js.liquid:
   development: 2018-06-03T00:40:23-04:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:
@@ -82,7 +82,7 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:40:23-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-07-07T23:27:04-04:00   02d4ae03b057108732cc541c7b0ff1c9
+  development: 2018-07-08T14:55:29-04:00   2d30f8600a314e6cf75c2bdc8bbed9b7
 snippets/quotes.liquid:
   development: 2018-07-07T22:10:02-04:00   af2b52c2ddeb207a2bf65992f53ab296
 snippets/respond.liquid:
