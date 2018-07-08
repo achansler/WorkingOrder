@@ -21,14 +21,9 @@
 
 
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-3 offset-4">
-        <img class="absolute" src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/product-shape.png?6977903491277320663" alt="background-shape">
-      </div>
-    </div>
     <div class="row margin-60">
       <div class="col-lg-4 offset-5">
-        <h2 class="product-title absolute index-front-4" itemprop="name">{{ product.title }}</h2>
+        <h3 class="product-title absolute index-front-4" itemprop="name">{{ product.title }}</h3>
       </div>
       <div class="text-center col-lg-6" id="no-padding">
         {% if product.images.size > 1 %}
@@ -104,10 +99,10 @@
               <div class=col-lg-7>
                 <div class="row">
                   <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-                  <span id="ProductPrice" class="h4 bold margin-bottom-none" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                  <span id="ProductPrice" class="h5 bold margin-bottom-none" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
                     {{ current_variant.price | money }}
                   </span>
-                  <h4 class="bold margin-bottom-none">&nbspper case (12 bottles)</h4>
+                  <h5 class="bold margin-bottom-none">&nbspper case (12 bottles)</h5>
                   {% if product.compare_at_price_max > product.price %}
                     <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
                     <p id="ComparePrice">

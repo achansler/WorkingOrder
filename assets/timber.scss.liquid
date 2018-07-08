@@ -142,7 +142,7 @@ $drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
 $siteWidth: 1180px;
 $gutter: 30px;
 $gridGutter: 30px; // can be a %, but nested grids will have smaller margins because of it
-$radius: 3px;
+$radius: 0px;
 
 // Z-index
 $zindexNavDropdowns: 5;
@@ -792,7 +792,7 @@ textarea,
 button,
 select {
   font-size: $baseFontSize;
-  line-height: 1.4;
+  line-height: 1.6;
   font-family: $bodyFontStack;
   color: $colorTextBody;
   font-weight: 300;
@@ -812,7 +812,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   p {
-    line-height: 1.4;
+    line-height: 1.6;
   }
 }
 
@@ -821,7 +821,7 @@ h1 {
 }
 
 h2, h3, h4, h5, h6 {
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 /*================ Use em() Sass function to declare font-size ================*/
@@ -1131,15 +1131,15 @@ html input[disabled] {
   vertical-align: middle;
   white-space: nowrap;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid $colorBtnPrimary;
   @include user-select(none);
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: $radius;
 
   /*================ Set primary button colors - can override later ================*/
-  background-color: $colorBtnPrimary;
-  color: $colorBtnPrimaryText;
+  background-color: transparent;
+  color: $colorBtnPrimary;
 
   &:hover {
     background-color: $colorBtnPrimaryHover;
@@ -2592,6 +2592,14 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+.cream-background {
+  background-color: #FAF9F7;
+}
+
+.section-padding {
+  padding: 100px 0px;
+}
+
 .section-xs {
   padding: 50px 0px;
 }
@@ -2604,11 +2612,7 @@ label.error {
   padding: 50px 0px 25px 0px;
 }
 
-.background-how-xs {
-  padding: 0px 0px 50px 0px;
-}
-
-.top-skewed-copy-padding {
+.top-skewed-copy-padding-xs {
   margin: 0px;
 }
 
@@ -2721,11 +2725,12 @@ ul {
 
 button:focus {outline:0 !important;}
 
-.repeat {
+.repeat-footer-text {
   white-space: nowrap;
-   width: 100%;
-   overflow: hidden;
-   text-overflow: clipped;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: clipped;
+  margin-bottom: 100px;
 }
 
 .vertical {
@@ -2739,7 +2744,7 @@ button:focus {outline:0 !important;}
 }
 
 .fine-print {
-  padding: 15px 0px 8px 0px;
+  padding: 10px 0px 8px 0px;
   font-size: em(12px);
 }
 
@@ -2749,6 +2754,16 @@ button:focus {outline:0 !important;}
 
 .footer-link {
   color: $colorFooterText;
+  text-decoration: underline;
+}
+
+.footer-instagram {
+  line-height: 1.2;
+  vertical-align: top;
+}
+
+.footer-list {
+  margin: 5px 0px 25px 0px;
 }
 
 .ingredient-blurb {
@@ -2782,40 +2797,53 @@ button:focus {outline:0 !important;}
   }
 
   h1 {
-    font-size: em(70px);
+    font-size: em(80px);
   }
 
   h2 {
-    font-size: em(45px);
+    font-size: em(65px);
   }
 
   h3 {
-    font-size: em(30px);
+    font-size: em(45px);
   }
 
   h4 {
-    font-size: em(20px);
+    font-size: em(30px);
   }
 
   h5 {
-    font-size: em(16px);
+    font-size: em(20px);
   }
 
   h6 {
-    font-size: em(14px);
+    font-size: em(16px);
   }
 
   p {
     font-size: em(25px);
   }
 
+  .small {
+    font-size: em(18px);
+  }
+
+  .benefits {
+    padding: 175px 0px 25px 0px;
+  }
+
+  .how {
+    padding: 25px 0px 100px 0px;
+  }
+
+  .ingredients {
+    padding: 100px 0px 100px 0px;
+  }
+
   .first-hero-image-lg {
     margin-top: $gutter * 2;
   }
 
-  .test {
-    background-color: white;
-  }
 
   .do-stuff-copy {
     margin-left: 75px;
@@ -2823,7 +2851,6 @@ button:focus {outline:0 !important;}
 
   .top-skewed-copy{
     margin: 0px;
-    padding: 175px 0px 0px 0px;
   }
 
   .cart-big {
@@ -2877,7 +2904,7 @@ button:focus {outline:0 !important;}
   }
 
   .sub-head {
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 25px 0px;
   }
 
   #no-padding {
@@ -2900,6 +2927,7 @@ button:focus {outline:0 !important;}
   .product-title {
     font-weight: 300;
     padding: 60px 0px 0px 0px;
+    line-height: 1;
   }
 
   .product-description-padding {
@@ -2940,7 +2968,7 @@ button:focus {outline:0 !important;}
   }
 
   .ingredient-blurb {
-    padding: 90px 0px 0px 55px;
+    padding: 102px 0px 0px 60px;
   }
 
   .background-pattern {
@@ -2953,13 +2981,6 @@ button:focus {outline:0 !important;}
     right: 0px;
   }
 
-  .spacer {
-    background-color: #FEFDFD;
-    height: 1px;
-    width: 100%;
-    margin-bottom: 150px;
-  }
-
   .ingredient-image {
     width: 33%;
   }
@@ -2970,6 +2991,11 @@ button:focus {outline:0 !important;}
 
   .footer-section {
     margin: 100px 0px 100px 0px;
+  }
+
+  .how-btn {
+    margin-top: 20px;
+    padding: 8px 30px;
   }
 
 }
@@ -2997,16 +3023,13 @@ button:focus {outline:0 !important;}
     padding: 0px 0px 0px 0px;
   }
 
-  .background-how-xs {
-    padding: 0px 0px 0px 0px;
-  }
 
 
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1170px;
+    max-width: 1250px;
   }
 
 }

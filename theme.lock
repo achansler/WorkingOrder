@@ -28,13 +28,13 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-28T19:39:43-04:00   5d119e19cb8dfe9a04c36f42dbf83e7d
 assets/timber.scss.liquid:
-  development: 2018-07-05T21:26:23-04:00   667703d0428e19dfbad3944feeb4517c
+  development: 2018-07-07T23:26:00-04:00   c8981b88e00235af6c1f23c671b0230b
 config/settings_data.json:
   development: 2018-06-22T23:20:04-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
   development: 2018-06-22T23:19:35-04:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2018-06-30T21:28:34-04:00   235aebf9822078ba92da982aea000c3c
+  development: 2018-07-07T23:09:51-04:00   a097b4f735f77e0c02a27a03d2e668b2
 locales/de.json:
   development: 2018-06-22T23:19:54-04:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -48,11 +48,11 @@ locales/pt-BR.json:
 locales/pt-PT.json:
   development: 2018-06-22T23:19:59-04:00   6ddf443592f389ff55aa739569736f47
 snippets/about.liquid:
-  development: 2018-07-01T20:11:25-04:00   1f7699677c4f4a62c95994bcefb81dc6
+  development: 2018-07-07T22:20:05-04:00   7ffa38dcb3375190ab5244511ed4dc55
 snippets/ajax-cart-template.liquid:
   development: 2018-06-03T00:40:23-04:00   e6fa15367ab47a164d9dc8e47353c684
 snippets/benefits.liquid:
-  development: 2018-07-05T17:40:11-04:00   fe974fe9e0adb7ba070b66e495958554
+  development: 2018-07-07T22:14:20-04:00   51c404ec4bc52974e17ca3af77c5f574
 snippets/blank.liquid:
   development: 2018-06-03T17:31:20-04:00   78b0ae06024396cde82801369f6962f0
 snippets/blog-sidebar.liquid:
@@ -70,9 +70,9 @@ snippets/fact.liquid:
 snippets/hero.liquid:
   development: 2018-07-04T12:43:25-04:00   6b8ebb0bba24781d184ff36f3e2896dc
 snippets/how.liquid:
-  development: 2018-07-05T17:49:36-04:00   53506a3189afd709d93fbb87ff59893b
+  development: 2018-07-07T23:14:58-04:00   1deb2c3cc801e99874acd36626ad248b
 snippets/ingredients.liquid:
-  development: 2018-07-05T20:46:23-04:00   c9e53fb8bb32c2a1996ec8f748328522
+  development: 2018-07-07T14:39:30-04:00   2c2acea519a17bf14aea68bc42140985
 snippets/oldIE-js.liquid:
   development: 2018-06-03T00:40:23-04:00   1197cc7109944206a600ed5caaef6a6f
 snippets/onboarding-empty-collection.liquid:
@@ -82,9 +82,9 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:40:23-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-07-02T19:38:12-04:00   33838344b9a31ec13526c0da101ecd14
+  development: 2018-07-07T23:27:04-04:00   02d4ae03b057108732cc541c7b0ff1c9
 snippets/quotes.liquid:
-  development: 2018-07-05T21:03:09-04:00   a8ca632f262317e052afc5255edc333d
+  development: 2018-07-07T22:10:02-04:00   af2b52c2ddeb207a2bf65992f53ab296
 snippets/respond.liquid:
   development: 2018-06-03T00:40:23-04:00   ca6abf0635dc2ad8c6bd377f83c79f6b
 snippets/search-bar.liquid:
@@ -124,7 +124,7 @@ templates/customers/reset_password.liquid:
 templates/gift_card.liquid:
   development: 2018-06-03T00:40:24-04:00   c1ae0f8232e003fac57213d1353e513c
 templates/index.liquid:
-  development: 2018-07-04T12:39:14-04:00   fba50d37b551d7ba306c907ef3424006
+  development: 2018-07-06T21:04:30-04:00   e75f8b50432271416fbedd6c7024c81a
 templates/list-collections.liquid:
   development: 2018-06-03T00:40:24-04:00   380da281c4820602d95334029b03aa84
 templates/page.contact.liquid:
