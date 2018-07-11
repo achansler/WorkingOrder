@@ -129,6 +129,20 @@
     </ul>
     <!-- //mobile-nav -->
   </div>
+  {% if settings.ajax_cart_method == "drawer" %}
+    <div id="CartDrawer" class="drawer drawer--right">
+      <div class="drawer__header">
+        <div class="drawer__title h4">{{ 'cart.general.title' | t }}</div>
+        <div class="drawer__close js-drawer-close">
+          <button type="button" class="icon-fallback-text">
+            <span class="icon icon-x" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'cart.general.close_cart' | t | json }}</span>
+          </button>
+        </div>
+      </div>
+      <div id="CartContainer"></div>
+    </div>
+  {% endif %}
   <div id="PageContainer">
       <header class="site-header" role="banner">
           <div class="container">
@@ -189,8 +203,8 @@
                     - #cartCost updates the total cost of the cart
                     - Documentation:  http://shopify.com/timber#ajax-cart
                 {% endcomment %}
-                <div class="cart-big">
-                  <a href="/cart">
+                <div>
+                  <a class="cart-big" href="/cart">
                     {{ 'layout.cart.title' | t }} :)
                     <span id="CartCount">{{ cart.item_count }}</span>
                     {{ 'layout.cart.items_count' | t: count: cart.item_count }}
@@ -215,7 +229,7 @@
         </h6>
       </div>
       <div class="container-fluid">
-        <div class="row">
+        <div class="row footer-content">
           <div class="col-lg-5 offset-lg-1">
             <div>
                 <h6 class="footer-list"><a  class="footer-link" href="#">Privacy Policy</a> & <a class="footer-link" href="#">Terms</a></h6>
@@ -225,7 +239,7 @@
             </div>
           </div>
           <div class="col-lg-5">
-            <h3 class="bold footer-instagram">Follow us on <a class="footer-link bold" href="https://www.instagram.com/working.order/?hl=en">Instagram</a>. It's a good one.</h3>
+            <h3 class="bold footer-instagram">Follow us on <a class="footer-link bold" href="https://www.instagram.com/working.order/?hl=en">Instagram</a>. It's pretty good.</h3>
             <h6 class="fine-print">
                Statements made on our website have not been evaluated by the Food and Drug Administration.<br /> Working Order beverages are not intended to diagnose, treat, cure or prevent any disease.
             </h6>

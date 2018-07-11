@@ -132,10 +132,10 @@ $successGreenBg: #ecfef0;
 
 // Drawers
 $drawerNavWidth: 300px;
-$drawerCartWidth: 300px;
-$colorDrawers: #f6f6f6;
-$colorDrawerBorder: darken($colorDrawers, 5%);
-$colorDrawerText: #333;
+$drawerCartWidth: 500px;
+$colorDrawers: #ffffff;
+$colorDrawerBorder: #7d7d7d;
+$colorDrawerText: #222222;
 $drawerTransition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
 
 // Sizing variables
@@ -146,7 +146,7 @@ $radius: 0px;
 
 // Z-index
 $zindexNavDropdowns: 5;
-$zindexDrawer: 10;
+$zindexDrawer: 1000;
 
 /*================ Typography ================*/
 
@@ -807,7 +807,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 0.5em;
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: inherit;
   }
 
@@ -826,7 +826,7 @@ h2, h3, h4, h5, h6 {
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
-  font-size: em(30px);
+  font-size: em(35px);
 }
 
 h2 {
@@ -836,7 +836,7 @@ h2 {
 }
 
 h3 {
-  font-size: em(20px);
+  font-size: em(25px);
 }
 
 h4 {
@@ -844,7 +844,7 @@ h4 {
 }
 
 h5 {
-  font-size: em(16px);
+  font-size: em(18px);
 }
 
 h6 {
@@ -1099,7 +1099,7 @@ hr {
 a,
 .text-link {
   color: $colorLink;
-  text-decoration: none;
+  text-decoration: underline;
   background: transparent;
 }
 
@@ -2114,8 +2114,8 @@ label.error {
   -webkit-overflow-scrolling: touch;
   top: 0;
   bottom: 0;
-  padding: 0 ($gutter / 2) ($gutter / 2);
-  max-width: 95%;
+  padding: 20px 20px 20px 20px;
+  max-width: 100%;
   z-index: $zindexDrawer;
   color: $colorDrawerText;
   background-color: $colorDrawers;
@@ -2488,12 +2488,11 @@ label.error {
 .ajaxcart__product-image {
   display: block;
   overflow: hidden;
-  margin-bottom: 15px;
 
   img {
     display: block;
-    margin: 0 auto;
-    max-width: 100%;
+    margin: 0;
+    width: 100%;
   }
 }
 
@@ -2592,6 +2591,15 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+#no-padding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.how-padding-xs {
+  padding-top: 60px;
+}
+
 .cream-background {
   background-color: #FAF9F7;
 }
@@ -2602,6 +2610,58 @@ label.error {
 
 .hide-xs {
   display: none;
+}
+
+.hero {
+  height: 600px;
+}
+
+.hero-padding {
+  padding-top: 225px;
+}
+
+.stamp-spacing {
+  padding: 350px 0px 0px 0px;
+}
+
+.benefits {
+  padding: 50px 0px 25px 0px;
+}
+
+.how {
+  padding: 0px 0px 50px 0px;
+}
+
+.how-btn {
+  margin-top: 20px ;
+}
+
+.ingredients {
+  padding: 50px 0px 25px 0px;
+}
+
+.ingredient-row-2 {
+  margin-top: 190px;
+}
+
+.ingredient-row-3 {
+  margin-top: 80px;
+}
+
+.ingredient-spacing-xs {
+  margin: 0px 0px 75px 0px;
+}
+
+.ingredient-spacing-four-xs {
+  margin: 0px 0px 100px 0px;
+}
+
+.ingredient-spacing-two-xs {
+  margin: 0px 0px 45px 0px;
+}
+
+.sub-head {
+  margin: 0px 0px 15px 0px;
 }
 
 .background-xs {
@@ -2620,11 +2680,7 @@ label.error {
   margin-top: 10%;
 }
 
-.hero-padding-xs {
-  padding-top: 300px;
-}
-
-.first-hero-image-xs {
+.first-hero-image {
   margin-top: $gutter;
 }
 
@@ -2687,15 +2743,15 @@ ul {
 }
 
 #price-row {
-  margin: 30px 0px 30px 0px;
+  margin: 30px 0px 15px 0px;
 }
 
 .margin-bottom-none {
   margin-bottom: 0px;
 }
 
-.fact-text {
-  margin: 50px 0px;
+.left {
+  text-align: left;
 }
 
 #marquee {
@@ -2722,14 +2778,12 @@ button:focus {outline:0 !important;}
   width: 100%;
   overflow: hidden;
   text-overflow: clipped;
-  margin-bottom: 100px;
 }
 
-.vertical {
-  -ms-transform: rotate(90deg); /* IE 9 */
-  -webkit-transform: rotate(90deg); /* Safari 3-8 */
-  transform: rotate(90deg);
+.footer-content {
+  margin: 100px 0px 100px 0px;
 }
+
 
 .push-right {
   right: 0px;
@@ -2759,7 +2813,11 @@ button:focus {outline:0 !important;}
 }
 
 .ingredient-blurb {
-  padding: 70px 0px 0px 40px;
+  padding: 80px 0px 0px 47px;
+}
+
+.hide-desktop {
+  display: inline;
 }
 
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
@@ -2776,9 +2834,6 @@ button:focus {outline:0 !important;}
     max-width: 540px;
   }
 
-  .hero-height-lg {
-    height: 800px;
-  }
 
 }
 
@@ -2789,11 +2844,11 @@ button:focus {outline:0 !important;}
   }
 
   h1 {
-    font-size: em(80px);
+    font-size: em(70px);
   }
 
   h2 {
-    font-size: em(65px);
+    font-size: em(55px);
   }
 
   h3 {
@@ -2816,8 +2871,22 @@ button:focus {outline:0 !important;}
     font-size: em(25px);
   }
 
+  $drawerCartWidth: 400px;
+
+  .drawer--right {
+    width: $drawerCartWidth;
+  }
+
+  .hero {
+    height: 800px;
+  }
+
   .small {
     font-size: em(18px);
+  }
+
+  .hero-padding {
+    padding-top: 350px;
   }
 
   .hero-image {
@@ -2829,11 +2898,15 @@ button:focus {outline:0 !important;}
   }
 
   .benefits {
-    padding: 150px 0px 25px 0px;
+    padding: 100px 0px 25px 0px;
   }
 
   .how {
     padding: 25px 0px 100px 0px;
+  }
+
+  .top-skewed-copy {
+    padding-top: 100px;
   }
 
   .ingredients {
@@ -2841,14 +2914,19 @@ button:focus {outline:0 !important;}
   }
 
   .section-padding-top {
-    padding-top: 100px;
+    padding-top: 75px;
   }
 
   .section-padding-bottom {
-    padding-bottom: 100px;
+    padding-bottom: 75px;
+    margin-bottom: 0px;
   }
 
-  .first-hero-image-lg {
+  .about-background {
+    margin-top: $gutter;
+  }
+
+  .first-hero-image {
     margin-top: $gutter * 2;
   }
 
@@ -2862,7 +2940,8 @@ button:focus {outline:0 !important;}
   }
 
   .cart-big {
-    font-size: 1.250em;
+    font-size: em(20px);
+    text-decoration: none;
   }
 
   .about {
@@ -2915,11 +2994,6 @@ button:focus {outline:0 !important;}
     margin: 0px 0px 25px 0px;
   }
 
-  #no-padding {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
   .margin-25 {
     margin: 0px 0px 0px 25px;
   }
@@ -2947,7 +3021,11 @@ button:focus {outline:0 !important;}
   }
 
   .stamp-spacing {
-    padding: 405px 90px 0px 0px;
+    padding: 400px 90px 0px 0px;
+  }
+
+  #price-row {
+    margin: 30px 0px 30px 0px;
   }
 
   .margin-425 {
@@ -2974,6 +3052,18 @@ button:focus {outline:0 !important;}
     margin: 120px 0px 0px 0px;
   }
 
+  .ingredient-spacing-xs {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .ingredient-spacing-four-xs {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .ingredient-spacing-two-xs {
+    margin: 0px 0px 0px 0px;
+  }
+
   .ingredient-blurb {
     padding: 100px 0px 0px 60px;
   }
@@ -2998,7 +3088,10 @@ button:focus {outline:0 !important;}
 
   .how-btn {
     margin-top: 20px;
-    padding: 8px 30px;
+  }
+
+  .hide-desktop {
+    display: none;
   }
 
 }
