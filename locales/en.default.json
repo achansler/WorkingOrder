@@ -156,7 +156,7 @@
       "delete": "Delete"
     },
     "login": {
-      "title": "Login",
+      "title": "Sign in to your account",
       "email": "Email",
       "password": "Password",
       "forgot_password": "Forgot your password?",
@@ -252,7 +252,7 @@
     },
     "customer": {
       "account": "Account",
-      "logged_in_as_html": "Logged in as {{ first_name }}",
+      "logged_in_as_html": "Hi, {{ first_name }}",
       "log_out": "Log out",
       "log_in": "Log in",
       "create_account": "Create account"

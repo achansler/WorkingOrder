@@ -1163,7 +1163,8 @@ html input[disabled] {
 .btn--secondary,
 .rte .btn--secondary {
   @extend .btn;
-  background-color: $colorBtnSecondary;
+  background-color: transparent;
+  border: none;
 
   &:hover {
     background-color: $colorBtnSecondaryHover;
@@ -1402,7 +1403,7 @@ form {
 }
 
 .form-vertical {
-  margin-bottom: $gutter / 2;
+  margin-bottom: $gutter;
 }
 
 /*================ Prevent zoom on touch devices in active inputs ================*/
@@ -1806,6 +1807,7 @@ label.error {
 ==============================================================================*/
 .site-header {
   padding: ($gutter / 2) 0;
+  background-color: $colorBody;
   position: fixed;
   width: 100%;
   z-index: 999;
@@ -2225,7 +2227,7 @@ label.error {
 ==============================================================================*/
 .site-footer {
   background-color: $colorFooterBg;
-  padding: $gutter;
+  padding: ($gutter / 2) 0;
   color: $colorFooterText;
 
   @include at-query ($min, $large) {
@@ -2591,9 +2593,23 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+.login_form_spacing input {
+  margin-bottom: 20px;
+}
+
+#login_submit_btn {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 #no-padding {
   padding-left: 0px;
   padding-right: 0px;
+}
+
+#nav_links a {
+  font-size: em(16px);
+  text-decoration: none;
 }
 
 .how-padding-xs {
@@ -2719,6 +2735,10 @@ ul {
   z-index: 3;
 }
 
+.about {
+  padding: 50px 0px 50px 0px;
+}
+
 .index-front-4 {
   z-index: 4;
 }
@@ -2728,8 +2748,13 @@ ul {
   padding: 20px 20px;
 }
 
+.important-xs {
+  padding: 0px 15px;
+  margin-bottom: 30px;
+}
+
 .section{
-  margin: 100px 0px;
+  margin: 50px 0px;
 }
 
 .text-background-img {
@@ -2781,7 +2806,7 @@ button:focus {outline:0 !important;}
 }
 
 .footer-content {
-  margin: 100px 0px 100px 0px;
+  margin: 50px 0px 50px 0px;
 }
 
 
@@ -2790,7 +2815,7 @@ button:focus {outline:0 !important;}
 }
 
 .fine-print {
-  padding: 10px 0px 8px 0px;
+  padding: 0px 0px 8px 0px;
   font-size: em(12px);
 }
 
@@ -2805,11 +2830,11 @@ button:focus {outline:0 !important;}
 
 .footer-instagram {
   line-height: 1.2;
-  vertical-align: top;
+  margin: 50px 0px 50px 0px
 }
 
 .footer-list {
-  margin: 5px 0px 25px 0px;
+  margin: 5px 0px 30px 0px;
 }
 
 .ingredient-blurb {
@@ -2818,6 +2843,23 @@ button:focus {outline:0 !important;}
 
 .hide-desktop {
   display: inline;
+}
+
+.newsletter_input_border {
+    border: none;
+}
+
+.newsletter_footer_input {
+  border-bottom: 2px solid #222222;
+}
+
+.newsletter_btn {
+  border: none;
+}
+
+.login_background {
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
@@ -2868,7 +2910,11 @@ button:focus {outline:0 !important;}
   }
 
   p {
-    font-size: em(25px);
+    font-size: em(20px);
+  }
+
+  .login_background {
+    padding: 200px 0px 0px 0px;
   }
 
   $drawerCartWidth: 400px;
@@ -2877,12 +2923,20 @@ button:focus {outline:0 !important;}
     width: $drawerCartWidth;
   }
 
+  .how-padding-xs {
+    padding-top: 0px;
+  }
+
   .hero {
     height: 800px;
   }
 
   .small {
     font-size: em(18px);
+  }
+
+  .login_title {
+    margin-bottom: 15px;
   }
 
   .hero-padding {
@@ -2926,6 +2980,23 @@ button:focus {outline:0 !important;}
     margin-top: $gutter;
   }
 
+  .footer-instagram {
+    line-height: 1.2;
+    margin: 50px 0px 0px 0px;
+  }
+
+  .section {
+    margin: 100px 0px;
+  }
+
+  .account_section {
+    margin: 100px 0px 200px 0px;
+  }
+
+  .logout_link {
+    padding-top: 35px;
+  }
+
   .first-hero-image {
     margin-top: $gutter * 2;
   }
@@ -2939,10 +3010,6 @@ button:focus {outline:0 !important;}
     margin: 0px;
   }
 
-  .cart-big {
-    font-size: em(20px);
-    text-decoration: none;
-  }
 
   .about {
     margin: 0 auto;
@@ -3045,11 +3112,11 @@ button:focus {outline:0 !important;}
   }
 
   .ingredient-row-2 {
-    margin: 200px 0px 0px 0px;
+    margin: 160px 0px 0px 0px;
   }
 
   .ingredient-row-3 {
-    margin: 120px 0px 0px 0px;
+    margin: 100px 0px 0px 0px;
   }
 
   .ingredient-spacing-xs {
@@ -3092,6 +3159,10 @@ button:focus {outline:0 !important;}
 
   .hide-desktop {
     display: none;
+  }
+
+  .newsletter {
+    max-width: 490px;
   }
 
 }

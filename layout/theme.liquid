@@ -148,7 +148,7 @@
           <div class="container">
 
             <div class="grid--full grid--table">
-              <div class="grid__item large--ten-twelfths">
+              <div class="grid__item large--tweleve-twelfths">
                 {% comment %}
                   Use the uploaded logo from theme settings if enabled.
                   Site name gets precedence with H1 tag on homepage, div on other pages.
@@ -175,26 +175,26 @@
                 {% comment %}
                   If customer accounts are enabled, provide login and create account links
                 {% endcomment %}
-                <!-- <div class="grid__item large--two-twelfths large--text-right">
+                <div class="grid__item large--two-twelfths large--text-right medium-down--hide" id="nav_links">
                 {% if shop.customer_accounts_enabled %}
                   <div>
                     {% if customer %}
                       {% if customer.first_name != blank %}
-                        {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                      <a href="/account">
+                        {% capture first_name %}{{ customer.first_name }}{% endcapture %}
                         {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                      </a>
                       {% else %}
                         <a href="/account">{{ 'layout.customer.account' | t }}</a>
                       {% endif %}
-                      | {{ 'layout.customer.log_out' | t | customer_logout_link }}
                     {% else %}
                       {{ 'layout.customer.log_in' | t | customer_login_link }}
-                      | {{ 'layout.customer.create_account' | t | customer_register_link }}
                     {% endif %}
                   </div>
                 {% endif %}
-              </div> -->
+              </div>
 
-              <div class="grid__item large--two-twelfths large--text-right medium-down--hide">
+              <div class="grid__item large--two-twelfths large--text-right small--text-right">
                 {% comment %}
                   Show number of items in the cart and total cost in the /cart link
 
@@ -203,8 +203,8 @@
                     - #cartCost updates the total cost of the cart
                     - Documentation:  http://shopify.com/timber#ajax-cart
                 {% endcomment %}
-                <div>
-                  <a class="cart-big" href="/cart">
+                <div id="nav_links">
+                  <a href="/cart">
                     {{ 'layout.cart.title' | t }} :)
                     <span id="CartCount">{{ cart.item_count }}</span>
                     {{ 'layout.cart.items_count' | t: count: cart.item_count }}
@@ -222,7 +222,7 @@
 
     </main>
     <!-- begin site-footer -->
-    <footer class="site-footer small--text-center" role="contentinfo">
+    <footer class="site-footer" role="contentinfo">
       <div class="marquee-boundry repeat-footer-text">
         <h6>
               WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER WORKING ORDER
@@ -231,20 +231,59 @@
       <div class="container-fluid">
         <div class="row footer-content">
           <div class="col-lg-5 offset-lg-1">
-            <div>
-                <h6 class="footer-list"><a  class="footer-link" href="#">Privacy Policy</a> & <a class="footer-link" href="#">Terms</a></h6>
-                <h6 class="footer-list">hello@drinkworkingorder.com</h6>
-                <h6 class="footer-list">Nobody’s perfect. Text us: 917.737.1717 or DM us <a class="footer-link" href="https://www.instagram.com/working.order/?hl=en">@working.order</a></h6>
-                <h6 class="footer-list">©2018 WorkingOrder LLC. All Rights Reserved</h6>
-            </div>
+            {% if settings.footer_newsletter_enable %}
+              <div class="newsletter footer-list">
+                {% comment %}
+                  MailChimp is the go-to newsletter service for Shopify.
+                  Use the link below to find your MailChimp form action
+                  and insert it in your site settings.
+
+                  If the form action URL is not set in the theme settings,
+                  it will fallback to a customer form so you can still capture the email.
+
+                  MailChimp newsletter integration and requirement:
+                   - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
+                {% endcomment %}
+                <h6>{{ 'layout.footer.newsletter_title' | t }}</h6>
+                {% if settings.newsletter_form_action != blank %}
+                  <form action="{{ settings.newsletter_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group newsletter_footer_input">
+                    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" name="EMAIL" id="mail" class="input-group-field newsletter_input_border" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                    <span class="input-group-btn">
+                      <input type="submit" class="btn newsletter_btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                    </span>
+                  </form>
+                {% else %}
+                  {% form 'customer' %}
+                    {{ form.errors | default_errors }}
+                    {% if form.posted_successfully? %}
+                      <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
+                    {% else %}
+                      <div class="input-group newsletter_footer_input">
+                        <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" name="contact[email]" id="Email" class="input-group-field newsletter_input_border" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <span class="input-group-btn">
+                          <input type="submit" class="btn newsletter_btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                        </span>
+                      </div>
+                    {% endif %}
+                  {% endform %}
+                {% endif %}
+
+              </div>
+            {% endif %}
+            <h3 class="bold footer-instagram">Follow us on <a class="footer-link bold" href="https://www.instagram.com/working.order/?hl=en">Instagram</a>. It's pretty good.</h3>
           </div>
           <div class="col-lg-5">
-            <h3 class="bold footer-instagram">Follow us on <a class="footer-link bold" href="https://www.instagram.com/working.order/?hl=en">Instagram</a>. It's pretty good.</h3>
+            <div>
+                <h6 class="footer-list">hello@drinkworkingorder.com</h6>
+                <h6 class="footer-list">Nobody’s perfect. Text us: 917.737.1717 or DM us <a class="footer-link" href="https://www.instagram.com/working.order/?hl=en" target="_blank">@working.order</a></h6>
+                <h6 class="footer-list"><a  class="footer-link" href="#">Privacy Policy</a> & <a class="footer-link" href="#">Terms</a></h6>
+            </div>
             <h6 class="fine-print">
                Statements made on our website have not been evaluated by the Food and Drug Administration.<br /> Working Order beverages are not intended to diagnose, treat, cure or prevent any disease.
             </h6>
+            <h6 class="footer-list fine-print">©2018 WorkingOrder LLC. All Rights Reserved</h6>
           </div>
-        </div>
       <!-- begin Shopify footer -->
       <div class="container">
         <div class="grid">
@@ -271,46 +310,7 @@
                 </ul>
             </div>
           {% endif %}
-          {% if settings.footer_newsletter_enable %}
-            <div class="grid__item large--one-third push--large--one-third medium--one-half">
-              {% comment %}
-                MailChimp is the go-to newsletter service for Shopify.
-                Use the link below to find your MailChimp form action
-                and insert it in your site settings.
-
-                If the form action URL is not set in the theme settings,
-                it will fallback to a customer form so you can still capture the email.
-
-                MailChimp newsletter integration and requirement:
-                 - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
-              {% endcomment %}
-              <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
-              {% if settings.newsletter_form_action != blank %}
-                <form action="{{ settings.newsletter_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="input-group">
-                  <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
-                  <span class="input-group-btn">
-                    <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
-                  </span>
-                </form>
-              {% else %}
-                {% form 'customer' %}
-                  {{ form.errors | default_errors }}
-                  {% if form.posted_successfully? %}
-                    <p class="note form-success">{{ 'general.newsletter_form.confirmation' | t }}</p>
-                  {% else %}
-                    <div class="input-group">
-                      <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="contact[email]" id="Email" class="input-group-field" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" autocorrect="off" autocapitalize="off">
-                      <input type="hidden" name="contact[tags]" value="newsletter">
-                      <span class="input-group-btn">
-                        <input type="submit" class="btn" name="subscribe" id="subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
-                      </span>
-                    </div>
-                  {% endif %}
-                {% endform %}
-              {% endif %}
-
-            </div>
-          {% endif %}
+          </div>
         </div>
       </div>
     </footer>

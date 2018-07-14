@@ -11,7 +11,7 @@
 
     {% if cart.item_count > 0 %}
 
-      <h1>{{ 'cart.general.title' | t }}</h1>
+      <h1 class="h3">{{ 'cart.general.title' | t }}</h1>
       <form action="/cart" method="post" novalidate class="cart table-wrap">
         <table class="cart-table full table--responsive">
           <thead class="cart__row cart__header-labels">
@@ -100,12 +100,12 @@
         </table>
         <div class="grid cart__row">
           {% if settings.cart_notes_enable %}
-            <div class="grid__item two-thirds small--one-whole">
+            <div class="grid__item one-third small--one-whole">
               <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
               <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
             </div>
           {% endif %}
-          <div class="grid__item text-right{% if settings.cart_notes_enable %} one-third small--one-whole{% endif %}">
+          <div class="grid__item text-right right{% if settings.cart_notes_enable %} one-third small--one-whole{% endif %}">
             <p>
               <span class="cart__subtotal-title">{{ 'cart.general.subtotal' | t }}</span>
               <span class="h3 cart__subtotal">{{ cart.total_price | money }}</span>
@@ -116,7 +116,7 @@
                 <span class="cart-subtotal__savings"><em>{{ 'cart.general.savings_html' | t: price: savings }}</em></span>
               </p>
             {% endif %}
-            <h4><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></h4>
+            <p class="small"><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
             <button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
             <button type="submit" name="checkout" class="btn">{{ 'cart.general.checkout' | t }}</button>
           </div>
