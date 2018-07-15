@@ -28,17 +28,17 @@ assets/respond.min.js:
 assets/timber.js.liquid:
   development: 2018-06-28T19:39:43-04:00   5d119e19cb8dfe9a04c36f42dbf83e7d
 assets/timber.scss.liquid:
-  development: 2018-07-13T22:26:09-04:00   e8d06dc6b3b5cc1c9d0d49037710cef4
+  development: 2018-07-15T19:18:07-04:00   6d2ef6cc4234225bf43896c5afe7ed28
 config/settings_data.json:
   development: 2018-06-22T23:20:04-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
   development: 2018-06-22T23:19:35-04:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2018-07-13T21:43:36-04:00   8b9ed2480d5e149bb4754214f1b03526
+  development: 2018-07-14T12:14:47-04:00   4a44131d2634df2ed50e0900ec6e5e7b
 locales/de.json:
   development: 2018-06-22T23:19:54-04:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
-  development: 2018-07-13T21:32:31-04:00   e227c23a93b2a23d5f7ba82aa0da0306
+  development: 2018-07-15T18:41:26-04:00   cc1d9a87d9d25ab6c4b49124e5be79f5
 locales/es.json:
   development: 2018-06-22T23:19:46-04:00   e1095d0bd282d98ace9c18e5973bb6bf
 locales/fr.json:
@@ -82,7 +82,7 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:40:23-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-07-10T21:49:42-04:00   ef887ee2244825d85ee3f4a607dd0c91
+  development: 2018-07-15T19:16:27-04:00   82d3a3014b335f168375c185cffcb342
 snippets/quotes.liquid:
   development: 2018-07-13T19:11:57-04:00   15f80ab66d4e26c4a0c3948156e94edd
 snippets/respond.liquid:
@@ -114,11 +114,11 @@ templates/customers/activate_account.liquid:
 templates/customers/addresses.liquid:
   development: 2018-06-03T00:40:24-04:00   998f4a7deb6a33d014cbc3f0075b8050
 templates/customers/login.liquid:
-  development: 2018-07-13T22:26:04-04:00   803636ce990910a5c2fe4ca7af2ed640
+  development: 2018-07-14T12:19:19-04:00   885c2e2c4ff30a955773121416f3815e
 templates/customers/order.liquid:
   development: 2018-06-03T00:40:24-04:00   e3ec01e9286bf4daa7b5a3a7bbe8479c
 templates/customers/register.liquid:
-  development: 2018-07-01T21:51:49-04:00   eb2bb9d8bfff4429cf76c88369bbfb6b
+  development: 2018-07-14T12:59:26-04:00   5d30f969e70f9c9572724a26cb8ac2b3
 templates/customers/reset_password.liquid:
   development: 2018-06-03T00:40:24-04:00   66ba7b680ca26b2eba0f162d4122d94c
 templates/gift_card.liquid:

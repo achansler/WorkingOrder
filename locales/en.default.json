@@ -156,11 +156,11 @@
       "delete": "Delete"
     },
     "login": {
-      "title": "Sign in to your account",
+      "title": "Log in to your account",
       "email": "Email",
       "password": "Password",
       "forgot_password": "Forgot your password?",
-      "sign_in": "Sign In",
+      "sign_in": "Log In",
       "cancel": "Return to Store",
       "guest_title": "Continue as a guest",
       "guest_continue": "Continue"
@@ -210,7 +210,7 @@
       "submit": "Reset Password"
     },
     "register": {
-      "title": "Create Account",
+      "title": "Create an account",
       "first_name": "First Name",
       "last_name": "Last Name",
       "email": "Email",

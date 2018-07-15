@@ -94,8 +94,8 @@ $colorBtnPrimaryActive: darken($colorBtnPrimaryHover, 10%);
 $colorBtnPrimaryText: #fff;
 
 $colorBtnSecondary: $colorSecondary;
-$colorBtnSecondaryHover: darken($colorBtnSecondary, 10%);
-$colorBtnSecondaryActive: darken($colorBtnSecondaryHover, 10%);
+$colorBtnSecondaryHover: #222;
+$colorBtnSecondaryActive: #222;
 $colorBtnSecondaryText: #fff;
 
 // Text link colors
@@ -1131,19 +1131,20 @@ html input[disabled] {
   vertical-align: middle;
   white-space: nowrap;
   cursor: pointer;
+  background-color: $colorBtnPrimary;
   border: 1px solid $colorBtnPrimary;
+  color: #fff;
   @include user-select(none);
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: $radius;
 
   /*================ Set primary button colors - can override later ================*/
-  background-color: transparent;
-  color: $colorBtnPrimary;
+
 
   &:hover {
-    background-color: $colorBtnPrimaryHover;
-    color: $colorBtnPrimaryText;
+    background-color: transparent;
+    color: #222;
   }
 
   &:active,
@@ -1163,8 +1164,9 @@ html input[disabled] {
 .btn--secondary,
 .rte .btn--secondary {
   @extend .btn;
+  border: 1px solid $colorBtnPrimary;
   background-color: transparent;
-  border: none;
+  color: #222;
 
   &:hover {
     background-color: $colorBtnSecondaryHover;
@@ -2593,6 +2595,19 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+.border {
+  border: solid .5px #222;
+  margin: 20px 0px;
+}
+
+#no-padding-right {
+  padding-left: 0px;
+}
+
+.price_quantity_row {
+  margin-top: 10px;
+}
+
 .login_form_spacing input {
   margin-bottom: 20px;
 }
@@ -2789,12 +2804,12 @@ ul {
   max-width: 100%;
 }
 
-.checkout-btn {
-  font-size: em(50px);
-  background-color: transparent;
-  color: #222222;
-  font-weight: 700;
-}
+// .checkout-btn {
+//   font-size: em(50px);
+//   background-color: transparent;
+//   color: #222222;
+//   font-weight: 700;
+// }
 
 button:focus {outline:0 !important;}
 
@@ -2911,6 +2926,10 @@ button:focus {outline:0 !important;}
 
   p {
     font-size: em(20px);
+  }
+
+  .js-qty input {
+    padding: 7px 25px;
   }
 
   .login_background {

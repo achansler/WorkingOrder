@@ -1,38 +1,44 @@
 <!-- /templates/customers/register.liquid -->
+<div class="cream-background">
+  <div class="login_background">
+    <div class="conatiner-fluid">
+      <div class="row">
+        <div class="col-lg-3 offset-lg-1">
+          <h1 class="login_title">{{ 'customer.register.title' | t }}</h1>
+          <h6>Do you already have an account? {{ 'layout.customer.log_in' | t | customer_login_link }}</h6>
+        </div>
+        <div class="col-lg-5 offset-1 login_form_spacing">
+          {% form 'create_customer' %}
 
-<div class="section">
-  <div class="grid">
+            {{ form.errors | default_errors }}
 
-    <div class="grid__item large--one-third push--large--one-third text-center">
+            <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+            <input type="text" name="customer[first_name]" id="FirstName" class="input-full" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
 
-      <h1>{{ 'customer.register.title' | t }}</h1>
+            <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
+            <input type="text" name="customer[last_name]" id="LastName" class="input-full" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
 
-      <div class="form-vertical">
-        {% form 'create_customer' %}
+            <label for="Email">{{ 'customer.register.email' | t }}</label>
+            <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
 
-          {{ form.errors | default_errors }}
+            <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+            <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
 
-          <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
-          <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+            <p>
+              <input type="submit" id="login_submit_btn" value="{{ 'customer.register.submit' | t }}" class="btn btn--full">
+            </p>
 
-          <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
-          <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
-
-          <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
-          <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
-
-          <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
-          <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
-
-          <p>
-            <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn btn--full">
-          </p>
-          <a href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
-
-        {% endform %}
+          {% endform %}
+        </div>
+        <div class="col-lg-1 offset-lg-1 hide-xs" id="no-padding">
+          <img src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/login_pink.png?1200706841395422416" alt="background pattern">
+        </div>
       </div>
-
+      <div class="row">
+        <div class="col-lg-3 offset-lg-3 hide-xs">
+          <img src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/login_blue.png?1687196550512096759" alt="background pattern">
+        </div>
+      </div>
     </div>
-
   </div>
 </div>
