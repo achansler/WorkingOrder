@@ -80,6 +80,7 @@ timber.cacheSelectors = function () {
     // Product Page
     $productImage            : $('#ProductPhotoImg'),
     $thumbImages             : $('#ProductThumbs').find('a.product-single__thumbnail'),
+    $thumbImagesMobile       : $('#ProductThumbsMobile').find('a.product-single__thumbnail__mobile'),
 
     // Customer Pages
     $recoverPasswordLink     : $('#RecoverPassword'),
@@ -97,6 +98,7 @@ timber.init = function () {
   timber.drawersInit();
   timber.mobileNavToggle();
   timber.productImageSwitch();
+  timber.productImageSwitchMobile();
   timber.responsiveVideos();
   timber.collectionViews();
   timber.loginForms();
@@ -269,6 +271,23 @@ timber.productImageSwitch = function () {
     });
   }
 };
+
+timber.productImageSwitchMobile = function () {
+  if (timber.cache.$thumbImagesMobile.length) {
+    // Switch the main image with one of the thumbnails
+    // Note: this does not change the variant selected, just the image
+    timber.cache.$thumbImagesMobile.on('click', function(evt) {
+      evt.preventDefault();
+      var newImage = $(this).attr('href');
+      timber.switchImage(newImage, null, timber.cache.$productImage);
+    });
+  }
+};
+
+
+
+
+
 
 timber.switchImage = function (src, imgObject, el) {
   // Make sure element is a jquery object

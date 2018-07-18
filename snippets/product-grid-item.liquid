@@ -20,26 +20,40 @@
     {% endcomment %}
     {% assign current_variant = product.selected_or_first_available_variant %}
 
-
-    <div class="container-fluid">
-      <div class="row margin-60">
-        <div class="col-lg-4 offset-5 hide-xs">
-          <h3 class="product-title absolute index-front-4" itemprop="name">{{ product.title }}</h3>
-        </div>
-        <div class="text-center col-lg-6" id="no-padding">
-          <div class="product-single__photos" id="ProductPhoto">
-            {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-            <img class="image" src="{{ featured_image | img_url: 'master' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+  <div class="section">
+      <div class="container-fluid product-container">
+        <div class="row margin-60">
+          <div class="col-lg-4 offset-5 hide-xs">
+            <h3 class="product-title absolute index-front-4" itemprop="name">{{ product.title }}</h3>
           </div>
-          {% comment %}
-            Create thumbnails if we have more than one product image
-          {% endcomment %}
-          <div class="hide-xs">
+          <div class="text-center col-lg-6" id="no-padding">
+            <div class="product-single__photos" id="ProductPhoto">
+              {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+              <img class="image" src="{{ featured_image | img_url: 'master' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+            </div>
+            {% comment %}
+              Create thumbnails if we have more than one product image
+            {% endcomment %}
+            <div class="hide-xs">
+              {% if product.images.size > 1 %}
+                <ul class="product-single__thumbnails thumbnail-grid" id="ProductThumbs">
+                  {% for image in product.images %}
+                  <li>
+                    <a href="{{ image.src | img_url: 'master' }}" class="product-single__thumbnail">
+                      <img class="thumbnail-styles" src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          </div>
+          <div class="hide-desktop">
             {% if product.images.size > 1 %}
-              <ul class="product-single__thumbnails absolute thumbnail-grid" id="ProductThumbs">
+              <ul class="product-single__thumbnails thumbnail-grid" id="ProductThumbsMobile">
                 {% for image in product.images %}
                 <li>
-                  <a href="{{ image.src | img_url: 'master' }}" class="product-single__thumbnail">
+                  <a href="{{ image.src | img_url: 'master' }}" class="product-single__thumbnail__mobile">
                     <img class="thumbnail-styles" src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
                   </a>
                 </li>
@@ -47,126 +61,125 @@
               </ul>
             {% endif %}
           </div>
-          <!--Add in the mobile version of alt imgs-->
+            <!--Add in the mobile version of alt imgs-->
 
-        </div>
-
-        <div class="col-lg-5 product-description-padding">
-          <div class="hide-desktop">
-            <div class="row">
-              <div class="col-12">
-                <h2 class="product-title left" itemprop="name">{{ product.title }}</h2>
+          <div class="col-lg-5 product-description-padding">
+            <div class="hide-desktop">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="product-title left" itemprop="name">{{ product.title }}</h2>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="product-description rte" itemprop="description">
-            {{ product.description }}
-          </div>
+            <div class="product-description rte" itemprop="description">
+              {{ product.description }}
+            </div>
 
-          <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-            <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="{{ shop.currency }}">
 
-            <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
-            {% comment %}
-              ID addToCartForm is a selector for the ajax cart plugin
-            {% endcomment %}
-            <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+              <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
               {% comment %}
-                Add product variants as a dropdown.
-                  - By default, each variant (or combination of variants) will display as its own <option>
-                  - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
-
-                You can leverage jQuery to add a callback on page load and each time the select element changes:
-                  - Include option_selection.js (as seen at the bottom of this file)
-                  - This allows you to use JavaScript anytime the variant dropdown changes
-                  - This also separates out your variant options (ie. size, color, etc.) to separate select elements
-
-                For more information on products with multiple options, visit:
-                  - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+                ID addToCartForm is a selector for the ajax cart plugin
               {% endcomment %}
-              <div class="row">
-                <div class="col-lg-4">
-                  <select name="id" id="productSelect" class="product-single__variants">
-                    {% for variant in product.variants %}
-                      {% if variant.available %}
+              <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
 
-                        {% comment %}
-                          Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
-                        {% endcomment %}
-                        <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                {% comment %}
+                  Add product variants as a dropdown.
+                    - By default, each variant (or combination of variants) will display as its own <option>
+                    - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
 
-                      {% else %}
-                        <option disabled="disabled">
-                          {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                        </option>
-                      {% endif %}
-                    {% endfor %}
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-                  <span id="ProductPrice" class="h4 bold margin-bottom-none" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-                    {{ current_variant.price | money }}
-                  </span>
-                  {% if product.compare_at_price_max > product.price %}
-                    <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-                    <p id="ComparePrice">
-                      {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-                    </p>
-                  {% endif %}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                  <div class="border">
+                  You can leverage jQuery to add a callback on page load and each time the select element changes:
+                    - Include option_selection.js (as seen at the bottom of this file)
+                    - This allows you to use JavaScript anytime the variant dropdown changes
+                    - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+                  For more information on products with multiple options, visit:
+                    - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
+                {% endcomment %}
+                <div class="row">
+                  <div class="col-lg-4">
+                    <select name="id" id="productSelect" class="product-single__variants">
+                      {% for variant in product.variants %}
+                        {% if variant.available %}
+
+                          {% comment %}
+                            Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                          {% endcomment %}
+                          <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+                        {% else %}
+                          <option disabled="disabled">
+                            {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                          </option>
+                        {% endif %}
+                      {% endfor %}
+                    </select>
                   </div>
                 </div>
-              </div>
-              <div class="row price_quantity_row">
-                <div class="col-lg-3 col-3">
-                  <label for="Quantity" class="quantity-selector visually-hidden">{{ 'products.product.quantity' | t }}</label>
-                  <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                <div class="row">
+                  <div class="col-12">
+                    <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                    <span id="ProductPrice" class="h4 bold margin-bottom-none" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                      {{ current_variant.price | money }}
+                    </span>
+                    {% if product.compare_at_price_max > product.price %}
+                      <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                      <p id="ComparePrice">
+                        {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+                      </p>
+                    {% endif %}
+                  </div>
                 </div>
-                <div class="col-lg-5 col-9" id="no-padding-right">
-                  <button type="submit" name="add" id="AddToCart" class="btn btn--full">
-                    <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-                  </button>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="border">
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </form>
+                <div class="row price_quantity_row">
+                  <div class="col-lg-3 col-3">
+                    <label for="Quantity" class="quantity-selector visually-hidden">{{ 'products.product.quantity' | t }}</label>
+                    <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                  </div>
+                  <div class="col-lg-5 col-9" id="no-padding-right">
+                    <button type="submit" name="add" id="AddToCart" class="btn btn--full">
+                      <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+
+            {% comment %}
+              If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
+              in the URL, we can show next/previous links to other products in the collection.
+            {% endcomment %}
+            {% if collection %}
+              {% if collection.previous_product or collection.next_product %}
+                <p>
+                  {% if collection.previous_product %}
+                    <span class="left">
+                      {{ 'products.general.previous_product_html' | t | link_to: collection.previous_product }}
+                    </span>
+                  {% endif %}
+                  {% if collection.next_product %}
+                    <span class="right">
+                      {{ 'products.general.next_product_html' | t | link_to: collection.next_product }}
+                    </span>
+                  {% endif %}
+                </p>
+              {% endif %}
+            {% endif %}
 
           </div>
-
-          {% comment %}
-            If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
-            in the URL, we can show next/previous links to other products in the collection.
-          {% endcomment %}
-          {% if collection %}
-            {% if collection.previous_product or collection.next_product %}
-              <p>
-                {% if collection.previous_product %}
-                  <span class="left">
-                    {{ 'products.general.previous_product_html' | t | link_to: collection.previous_product }}
-                  </span>
-                {% endif %}
-                {% if collection.next_product %}
-                  <span class="right">
-                    {{ 'products.general.next_product_html' | t | link_to: collection.next_product }}
-                  </span>
-                {% endif %}
-              </p>
-            {% endif %}
-          {% endif %}
-
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 

@@ -150,10 +150,12 @@ $zindexDrawer: 1000;
 
 /*================ Typography ================*/
 
-$headerFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$headerFontWeight: 300;
+$headerFontStack: 'Neue Haas Grotesk Disp Reg', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$headerFontWeight: Normal;
 
-$bodyFontStack: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$headerFontStackBold: 'Neue Haas Grotesk Disp Bd', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$bodyFontStack: 'Neue Haas Grotesk Text Reg', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $baseFontSize: 14px; // Henceforth known as 1em
 
 @font-face {
@@ -820,9 +822,16 @@ h1 {
   line-height: 1;
 }
 
-h2, h3, h4, h5, h6 {
+h2 {
+  line-height: 1;
+  font-family: $headerFontStackBold;
+}
+
+h3, h4, h5, h6 {
   line-height: 1.6;
 }
+
+
 
 /*================ Use em() Sass function to declare font-size ================*/
 h1 {
@@ -831,8 +840,6 @@ h1 {
 
 h2 {
   font-size: em(30px);
-  font-weight: bold;
-  line-height: 1;
 }
 
 h3 {
@@ -862,7 +869,7 @@ p {
 }
 
 .bold {
-  font-weight: bold;
+  font-family: $headerFontStackBold;
 }
 
 
@@ -2595,6 +2602,14 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+.quotes-section {
+    margin: 75px 0px 20px 0px;
+  }
+
+.how-btn:hover {
+  text-decoration: none;
+}
+
 .border {
   border: solid .5px #222;
   margin: 20px 0px;
@@ -2719,17 +2734,6 @@ ul {
   list-style-type: none;
 }
 
-.thumbnail-grid {
-  top: 25%;
-}
-
-.thumbnail-styles {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 1px solid #747474;
-}
-
 .absolute {
   position: absolute;
 }
@@ -2750,10 +2754,6 @@ ul {
   z-index: 3;
 }
 
-.about {
-  padding: 50px 0px 50px 0px;
-}
-
 .index-front-4 {
   z-index: 4;
 }
@@ -2769,7 +2769,7 @@ ul {
 }
 
 .section{
-  margin: 50px 0px;
+  padding: 75px 0px;
 }
 
 .text-background-img {
@@ -2928,6 +2928,22 @@ button:focus {outline:0 !important;}
     font-size: em(20px);
   }
 
+  .thumbnail-grid {
+    top: 25%;
+    position: absolute;
+  }
+
+  .thumbnail-styles {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #979797;
+  }
+
+  .thumbnail-styles:hover {
+    border: 1px solid #222222;
+  }
+
   .js-qty input {
     padding: 7px 25px;
   }
@@ -2983,16 +2999,7 @@ button:focus {outline:0 !important;}
   }
 
   .ingredients {
-    padding: 100px 0px 100px 0px;
-  }
-
-  .section-padding-top {
-    padding-top: 75px;
-  }
-
-  .section-padding-bottom {
-    padding-bottom: 75px;
-    margin-bottom: 0px;
+    padding: 100px 0px 0px 0px;
   }
 
   .about-background {
@@ -3005,7 +3012,7 @@ button:focus {outline:0 !important;}
   }
 
   .section {
-    margin: 100px 0px;
+    padding: 100px 0px;
   }
 
   .account_section {
@@ -3027,11 +3034,6 @@ button:focus {outline:0 !important;}
 
   .top-skewed-copy{
     margin: 0px;
-  }
-
-
-  .about {
-    margin: 0 auto;
   }
 
   .padding-fact{
@@ -3126,8 +3128,12 @@ button:focus {outline:0 !important;}
     margin: 0px 0px 0px 0px;
   }
 
+  .quotes-section {
+    margin: 100px 0px 100px 0px;
+  }
+
   .quotes {
-    margin: 65px 0px 65px 0px;
+    margin: 50px 0px 50px 0px;
   }
 
   .ingredient-row-2 {
@@ -3226,6 +3232,12 @@ button:focus {outline:0 !important;}
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.product-container {
+  max-width: 1410px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .row {
