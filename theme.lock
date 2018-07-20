@@ -25,16 +25,22 @@ assets/respond-proxy.html:
   development: 2018-06-03T00:40:22-04:00   75002d74a330bff6bf069284da503b4c
 assets/respond.min.js:
   development: 2018-06-03T00:40:22-04:00   a2684e9b8fa50d6d11c56a9ada068528
+assets/slick-theme.css.liquid:
+  development: 2018-07-19T21:46:36-04:00   f9faba678c4d6dcfdde69e5b11b37a2e
+assets/slick.css.liquid:
+  development: 2018-07-19T21:45:56-04:00   f38b2db10e01b1572732a3191d538707
+assets/slick.js.liquid:
+  development: 2018-07-19T21:45:22-04:00   5f8f4aed010e1afe499184d8197309f9
 assets/timber.js.liquid:
-  development: 2018-07-16T22:27:14-04:00   7afe74f44a07bb0485e127aa078e71c0
+  development: 2018-07-19T22:28:59-04:00   143ba65a2376a88b18a65eeb4c0c7200
 assets/timber.scss.liquid:
-  development: 2018-07-17T23:17:50-04:00   d4811283cc37edf5afc1a83a33a78391
+  development: 2018-07-19T22:38:02-04:00   92c778ebddbf8944268d085baaa712f3
 config/settings_data.json:
   development: 2018-06-22T23:20:04-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
   development: 2018-06-22T23:19:35-04:00   4de50d8b26c23ea835a23162e448572d
 layout/theme.liquid:
-  development: 2018-07-17T22:39:44-04:00   4da59a272c425c4687dbbc621c092eca
+  development: 2018-07-19T21:52:14-04:00   fdd5045b39a7dfcf83bdb478985d608f
 locales/de.json:
   development: 2018-06-22T23:19:54-04:00   585899bd4424d43afa93b72083a5aa0e
 locales/en.default.json:
@@ -82,7 +88,7 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:40:23-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-07-17T23:13:22-04:00   3394a0e21274184161255722f103bae7
+  development: 2018-07-19T22:39:01-04:00   92e32e162dff156527d8a2afa7e1e7b8
 snippets/quotes.liquid:
   development: 2018-07-17T23:10:18-04:00   f0802d2fdd9f4a6ccfdd504026adf24c
 snippets/respond.liquid:

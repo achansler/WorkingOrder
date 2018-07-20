@@ -8,8 +8,6 @@
     - http://schema.org/docs/gs.html
 
 {% endcomment %}
-
-<div id="product">
   <div itemscope itemtype="http://schema.org/Product">
 
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -21,13 +19,14 @@
     {% assign current_variant = product.selected_or_first_available_variant %}
 
   <div class="section">
+    <div id="product">
       <div class="container-fluid product-container">
         <div class="row margin-60">
           <div class="col-lg-4 offset-5 hide-xs">
             <h3 class="product-title absolute index-front-4" itemprop="name">{{ product.title }}</h3>
           </div>
           <div class="text-center col-lg-6" id="no-padding">
-            <div class="product-single__photos" id="ProductPhoto">
+            <div class="product-single__photos hide-xs" id="ProductPhoto">
               {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
               <img class="image" src="{{ featured_image | img_url: 'master' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
             </div>
@@ -48,17 +47,16 @@
               {% endif %}
             </div>
           </div>
-          <div class="hide-desktop">
+
+          <div class="col-12 hide-desktop">
             {% if product.images.size > 1 %}
-              <ul class="product-single__thumbnails thumbnail-grid" id="ProductThumbsMobile">
+              <div class="center slick-slider" id="ProductThumbsMobile">
                 {% for image in product.images %}
-                <li>
-                  <a href="{{ image.src | img_url: 'master' }}" class="product-single__thumbnail__mobile">
-                    <img class="thumbnail-styles" src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-                  </a>
-                </li>
+                <div>
+                    <img class="product-single__thumbnail__mobile slider-img" src="{{ image.src | img_url: 'medium' }}" alt="{{ image.alt | escape }}">
+                </div>
                 {% endfor %}
-              </ul>
+              </div>
             {% endif %}
           </div>
             <!--Add in the mobile version of alt imgs-->
@@ -225,4 +223,6 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
+
+
 </script>

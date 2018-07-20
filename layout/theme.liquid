@@ -29,6 +29,9 @@
 
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'slick.css' | asset_url | stylesheet_tag }}
+  {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+
 
   <!-- FONTS ================================================== -->
   <link href="//cloud.typenetwork.com/projects/2631/fontface.css/" rel="stylesheet" type="text/css">
@@ -322,6 +325,8 @@
 
   {{ 'fastclick.min.js' | asset_url | script_tag }}
   {{ 'timber.js' | asset_url | script_tag }}
+  {{ 'slick.js' | asset_url | script_tag }}
+
 
   {% comment %}
     Template-specific js
@@ -361,6 +366,8 @@
       });
     </script>
   {% endif %}
+
+
 
 </body>
 </html>
