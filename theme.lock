@@ -32,9 +32,9 @@ assets/slick.css.liquid:
 assets/slick.js.liquid:
   development: 2018-07-19T21:45:22-04:00   5f8f4aed010e1afe499184d8197309f9
 assets/timber.js.liquid:
-  development: 2018-07-19T22:28:59-04:00   143ba65a2376a88b18a65eeb4c0c7200
+  development: 2018-07-21T16:59:39-04:00   e6ec00a6c323a4bd58aa286c166b3102
 assets/timber.scss.liquid:
-  development: 2018-07-19T22:38:02-04:00   92c778ebddbf8944268d085baaa712f3
+  development: 2018-07-21T16:57:53-04:00   07bdb79d42d8844189eb39d1f6638843
 config/settings_data.json:
   development: 2018-06-22T23:20:04-04:00   fe75d34743f726c8bb511205c7273fc5
 config/settings_schema.json:
@@ -88,7 +88,7 @@ snippets/onboarding-featured-collections.liquid:
 snippets/onboarding-featured-products.liquid:
   development: 2018-06-03T00:40:23-04:00   6a32fc5786e0f1dc98a1f75897fca8b3
 snippets/product-grid-item.liquid:
-  development: 2018-07-19T22:39:01-04:00   92e32e162dff156527d8a2afa7e1e7b8
+  development: 2018-07-21T16:56:45-04:00   2a3169c343f6b61ba2e02fbd578ee075
 snippets/quotes.liquid:
   development: 2018-07-17T23:10:18-04:00   f0802d2fdd9f4a6ccfdd504026adf24c
 snippets/respond.liquid:

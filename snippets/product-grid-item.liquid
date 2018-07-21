@@ -52,8 +52,8 @@
             {% if product.images.size > 1 %}
               <div class="center slick-slider" id="ProductThumbsMobile">
                 {% for image in product.images %}
-                <div>
-                    <img class="product-single__thumbnail__mobile slider-img" src="{{ image.src | img_url: 'medium' }}" alt="{{ image.alt | escape }}">
+                <div class="slider_img">
+                    <img class="product-single__thumbnail__mobile" src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
                 </div>
                 {% endfor %}
               </div>
