@@ -86,6 +86,7 @@ $breakpoint-has-pull:  ('medium', 'medium-down', 'large');
 // Timber Colors
 $colorPrimary: {{ settings.color_primary }};
 $colorSecondary: {{ settings.color_secondary }};
+$primaryBlack: #222;
 
 // Button colors
 $colorBtnPrimary: $colorPrimary;
@@ -717,11 +718,6 @@ html {
   background-color: $colorFooterBg;
 }
 
-body {
-  // background-color: $colorBody; CHANGE THIS IN THE EDITOR DELETE HARD Code
-  background-color: #FEFDFD;
-}
-
 [tabindex='-1']:focus {
   outline: none;
 }
@@ -1173,7 +1169,7 @@ html input[disabled] {
   @extend .btn;
   border: 1px solid $colorBtnPrimary;
   background-color: transparent;
-  color: #222;
+  color: $primaryBlack;
 
   &:hover {
     background-color: $colorBtnSecondaryHover;
@@ -1503,10 +1499,29 @@ textarea {
 /*================ Input element overrides ================*/
 input[type="checkbox"],
 input[type="radio"] {
-  display: inline;
-  margin: 0 8px 0 0;
+  margin: 0px 3px 3px 0px;
   padding: 0;
   width: auto;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="radio"]:hover {
+  cursor: pointer;
+}
+
+input[type="radio"]:focus {
+  outline:0 !important;
+}
+
+input[type="radio"]:checked {
+    background: $primaryBlack;
 }
 
 input[type="checkbox"] {
@@ -1514,10 +1529,6 @@ input[type="checkbox"] {
   -moz-appearance: checkbox;
 }
 
-input[type="radio"] {
-  -webkit-appearance: radio;
-  -moz-appearance: radio;
-}
 
 input[type="image"] {
   padding-left: 0;
@@ -2605,6 +2616,22 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+.size_options {
+  margin-left: 0px;
+}
+
+#radio_btn {
+  margin-bottom: 3px;
+}
+
+.notify-me-text {
+  margin-top: 8px;
+}
+
+.soldout {
+  font-size: em(30px);
+}
+
 .slider_img {
   padding-right: 5px;
   padding-left: 5px;
@@ -2619,13 +2646,10 @@ label.error {
 }
 
 .border {
-  border: solid .5px #222;
+  border: solid .5px $primaryBlack;
   margin: 20px 0px;
 }
 
-#no-padding-right {
-  padding-left: 0px;
-}
 
 .price_quantity_row {
   margin-top: 10px;
@@ -2804,20 +2828,10 @@ ul {
 
 #marquee {
  background: none;
- overflow: hidden;
  white-space: nowrap;
+ overflow:hidden;
 }
 
-.marquee-boundry {
-  max-width: 100%;
-}
-
-// .checkout-btn {
-//   font-size: em(50px);
-//   background-color: transparent;
-//   color: #222222;
-//   font-weight: 700;
-// }
 
 button:focus {outline:0 !important;}
 
@@ -2873,7 +2887,7 @@ button:focus {outline:0 !important;}
 }
 
 .newsletter_footer_input {
-  border-bottom: 2px solid #222222;
+  border-bottom: 2px solid $primaryBlack;
 }
 
 .newsletter_btn {
@@ -2881,8 +2895,8 @@ button:focus {outline:0 !important;}
 }
 
 .login_background {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 //BOOTSTRAP GRID USED FOR HOME PAGE ONLY//
@@ -2937,19 +2951,19 @@ button:focus {outline:0 !important;}
   }
 
   .thumbnail-grid {
-    top: 25%;
+    top: 35%;
     position: absolute;
   }
 
   .thumbnail-styles {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     border: 1px solid #979797;
   }
 
   .thumbnail-styles:hover {
-    border: 1px solid #222222;
+    border: 1px solid $primaryBlack;
   }
 
   .js-qty input {

@@ -1,5 +1,4 @@
 <!-- /templates/customers/login.liquid -->
-  <div class="cream-background">
     <div class="login_background">
       <div class="container-fluid">
         <div class="row">
@@ -15,24 +14,26 @@
           </div>
 
           <div class="col-lg-5 offset-lg-1 login_form_spacing">
-            {{ form.errors | default_errors }}
+            <div id="CustomerLoginFormInputs">
+              {{ form.errors | default_errors }}
 
-            <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
-            <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" autofocusautocorrect="off" autocapitalize="off" autofocus>
+              <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+              <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" autofocusautocorrect="off" autocapitalize="off" autofocus>
 
-            {% if form.password_needed %}
-              <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
-              <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
-            {% endif %}
+              {% if form.password_needed %}
+                <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+                <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}">
+              {% endif %}
 
-            <p>
-              <input type="submit" id="login_submit_btn" class="btn btn--full" value="{{ 'customer.login.sign_in' | t }}">
-            </p>
-            {% if form.password_needed %}
-              <h6><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></h6>
-            {% endif %}
+              <p>
+                <input type="submit" id="login_submit_btn" class="btn btn--full" value="{{ 'customer.login.sign_in' | t }}">
+              </p>
+              {% if form.password_needed %}
+                <h6><a href="#recover" id="RecoverPassword">{{ 'customer.login.forgot_password' | t }}</a></h6>
+              {% endif %}
 
-          {% endform %}
+            {% endform %}
+            </div>
           {% comment %}
             JS shows/hides this form in timber.loginForms()
           {% endcomment %}
@@ -75,9 +76,8 @@
                 <input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
               {% endform %}
             {% endif %}
-
-
           </div>
+
         </div>
           <div class="col-lg-1 offset-lg-1 hide-xs" id="no-padding">
             <img src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/login_pink.png?1200706841395422416" alt="background pattern">

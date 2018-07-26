@@ -87,6 +87,7 @@ timber.cacheSelectors = function () {
     $hideRecoverPasswordLink : $('#HideRecoverPasswordLink'),
     $recoverPasswordForm     : $('#RecoverPasswordForm'),
     $customerLoginForm       : $('#CustomerLoginForm'),
+    $customerLoginFormInputs : $('#CustomerLoginFormInputs'),
     $passwordResetSuccess    : $('#ResetSuccess')
   };
 };
@@ -213,6 +214,7 @@ timber.productPage = function (options) {
       $productPrice = $('#ProductPrice'),
       $comparePrice = $('#ComparePrice'),
       $quantityElements = $('.quantity-selector, label + .js-qty'),
+      $soldOutHide = $('.soldOutHide'),
       $addToCartText = $('#AddToCartText');
 
   if (variant) {
@@ -232,9 +234,10 @@ timber.productPage = function (options) {
       $quantityElements.show();
     } else {
       // Sold out, disable the submit button, change text, hide quantity elements
-      $addToCart.addClass('disabled').prop('disabled', true);
+      $addToCart.removeClass('btn btn--full').prop('disabled', true);
+      $addToCart.addClass('soldout').prop('disabled', true);
       $addToCartText.html({{ 'products.product.sold_out' | t | json }});
-      $quantityElements.hide();
+      $soldOutHide.hide();
     }
 
     // Regardless of stock, update the product price
@@ -340,6 +343,16 @@ timber.loginForms = function() {
     timber.cache.$customerLoginForm.show();
   }
 
+  function showRecoverPasswordFormInputs() {
+    timber.cache.$recoverPasswordForm.show();
+    timber.cache.$customerLoginFormInputs.hide();
+  }
+
+  function hideRecoverPasswordFormInputs() {
+    timber.cache.$recoverPasswordForm.hide();
+    timber.cache.$customerLoginFormInputs.show();
+  }
+
   timber.cache.$recoverPasswordLink.on('click', function(evt) {
     evt.preventDefault();
     showRecoverPasswordForm();
@@ -348,6 +361,16 @@ timber.loginForms = function() {
   timber.cache.$hideRecoverPasswordLink.on('click', function(evt) {
     evt.preventDefault();
     hideRecoverPasswordForm();
+  });
+
+  timber.cache.$recoverPasswordLink.on('click', function(evt) {
+    evt.preventDefault();
+    showRecoverPasswordFormInputs();
+  });
+
+  timber.cache.$hideRecoverPasswordLink.on('click', function(evt) {
+    evt.preventDefault();
+    hideRecoverPasswordFormInputs();
   });
 
   // Allow deep linking to recover password form
@@ -531,6 +554,7 @@ window.addEventListener('load', function () {
 	m.innerHTML = t + space + t + space + t + space + t + space + t + space + t + space + t + space;
 	var x = setInterval(go, 50);
 }, true);
+
 
 /*
      _ _      _       _

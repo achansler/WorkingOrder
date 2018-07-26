@@ -122,8 +122,20 @@
           The cart is empty
         {% endcomment %}
         <h2>{{ 'cart.general.title' | t }}</h2>
-        <p>{{ 'cart.general.empty' | t }}</p>
-        <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+        <div class="row">
+          <div class="col-12">
+            <div class="border">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="section">
+              <p>{{ 'cart.general.empty' | t }}</p>
+              <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+            </div>
+          </div>
+        </div>
       {% endif %}
     </div>
   </div>
