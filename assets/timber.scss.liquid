@@ -2690,16 +2690,13 @@ label.error {
   display: none;
 }
 
-.hero {
-  height: 600px;
-}
 
 .hero-padding {
   padding-top: 225px;
 }
 
 .stamp-spacing {
-  padding: 350px 0px 0px 0px;
+  padding: 190px 0px 0px 0px;
 }
 
 .benefits {
@@ -2750,10 +2747,6 @@ label.error {
   margin: 0px;
 }
 
-.hero-height-xs {
-  height: 600px;
-}
-
 .second-row-margin-xs {
   margin-top: 10%;
 }
@@ -2788,6 +2781,10 @@ ul {
 
 .index-front-4 {
   z-index: 4;
+}
+
+.index-front-10 {
+  z-index: 10;
 }
 
 .explainer-text {
@@ -2882,6 +2879,11 @@ button:focus {outline:0 !important;}
   display: inline;
 }
 
+
+.hide-xs-show-md {
+  display: none;
+}
+
 .newsletter_input_border {
     border: none;
 }
@@ -2906,6 +2908,18 @@ button:focus {outline:0 !important;}
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+@media (min-width: 414px) {
+  .container {
+    max-width: 398px;
+  }
+
+  .ingredient-blurb {
+    padding: 90px 0px 0px 55px;
+  }
+
+
 }
 
 @media (min-width: 576px) {
@@ -2950,6 +2964,14 @@ button:focus {outline:0 !important;}
     font-size: em(20px);
   }
 
+  .ingredient-spacing-four-xs {
+    margin: 0px 0px 50px 0px;;
+  }
+
+  .jumping_image {
+    padding-top: 50px;
+  }
+
   .thumbnail-grid {
     top: 35%;
     position: absolute;
@@ -2982,10 +3004,6 @@ button:focus {outline:0 !important;}
 
   .how-padding-xs {
     padding-top: 0px;
-  }
-
-  .hero {
-    height: 800px;
   }
 
   .small {
@@ -3031,10 +3049,6 @@ button:focus {outline:0 !important;}
   .footer-instagram {
     line-height: 1.2;
     margin: 50px 0px 0px 0px;
-  }
-
-  .section {
-    padding: 100px 0px;
   }
 
   .account_section {
@@ -3122,16 +3136,12 @@ button:focus {outline:0 !important;}
     line-height: 1;
   }
 
-  .product-description-padding {
-    margin: 175px 0px 0px 25px;
-  }
-
   .hero-spacing {
     padding-top: 350px;
   }
 
   .stamp-spacing {
-    padding: 400px 90px 0px 0px;
+    padding: 450px 90px 0px 0px;
   }
 
   #price-row {
@@ -3159,27 +3169,15 @@ button:focus {outline:0 !important;}
   }
 
   .ingredient-row-2 {
-    margin: 160px 0px 0px 0px;
+    margin: 115px 0px 0px 0px;
   }
 
   .ingredient-row-3 {
-    margin: 100px 0px 0px 0px;
-  }
-
-  .ingredient-spacing-xs {
-    margin: 0px 0px 0px 0px;
-  }
-
-  .ingredient-spacing-four-xs {
-    margin: 0px 0px 0px 0px;
-  }
-
-  .ingredient-spacing-two-xs {
-    margin: 0px 0px 0px 0px;
+    margin: 60px 0px 0px 0px;
   }
 
   .ingredient-blurb {
-    padding: 100px 0px 0px 60px;
+    padding: 125px 0px 0px 75px;
   }
 
   .background-pattern {
@@ -3208,8 +3206,16 @@ button:focus {outline:0 !important;}
     display: none;
   }
 
+  .hide-desktop-show-md {
+    display: inline;
+  }
+
   .newsletter {
     max-width: 490px;
+  }
+
+  .hide-xs-show-md {
+    display: inline;
   }
 
 }
@@ -3217,6 +3223,18 @@ button:focus {outline:0 !important;}
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
+  }
+
+  .product-description-padding {
+    margin: 175px 0px 0px 25px;
+  }
+
+  .section {
+    padding: 100px 0px;
+  }
+
+  .hide-desktop-show-md {
+    display: none;
   }
 
   .text-background-img {
@@ -3237,7 +3255,29 @@ button:focus {outline:0 !important;}
     padding: 0px 0px 0px 0px;
   }
 
+  .ingredient-blurb {
+    padding: 100px 0px 0px 60px;
+  }
 
+  .ingredient-spacing-xs {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .ingredient-spacing-four-xs {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .ingredient-spacing-two-xs {
+    margin: 0px 0px 0px 0px;
+  }
+
+  .ingredient-row-2 {
+    margin: 160px 0px 0px 0px;
+  }
+
+  .ingredient-row-3 {
+    margin: 100px 0px 0px 0px;
+  }
 
 }
 
