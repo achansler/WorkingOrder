@@ -2616,6 +2616,39 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
+.rwd-break{
+  display: inline;
+}
+
+.nutrition-tidbit {
+  line-height: 1;
+  margin-top: 8px;
+}
+
+.nutrition-margin {
+  margin: 15px 15px 20px 15px;
+}
+
+.nutrition-tidbit-background {
+  padding: 15px 15px;
+}
+
+.border-right {
+  border-right: 1px solid $primaryBlack;
+}
+
+.logo-about{
+  margin-top: 30px;
+}
+
+.product-variants {
+  margin-left: 15px;
+}
+
+.marquee-text {
+  margin-top: 17px;
+}
+
 .size_options {
   margin-left: 0px;
 }
@@ -2755,7 +2788,7 @@ label.error {
   margin-top: $gutter;
 }
 
-ul {
+ul .no-bullets {
   list-style-type: none;
 }
 
@@ -2827,6 +2860,10 @@ ul {
  background: none;
  white-space: nowrap;
  overflow:hidden;
+}
+
+.marquee-text {
+  margin-top: 35px;
 }
 
 
@@ -2964,6 +3001,14 @@ button:focus {outline:0 !important;}
     font-size: em(20px);
   }
 
+  .rwd-break{
+    display: none;
+  }
+
+  .section-xs {
+    padding: 0px 0px;
+  }
+
   .ingredient-spacing-four-xs {
     margin: 0px 0px 50px 0px;;
   }
@@ -2975,6 +3020,7 @@ button:focus {outline:0 !important;}
   .thumbnail-grid {
     top: 35%;
     position: absolute;
+    padding-left: 15px;
   }
 
   .thumbnail-styles {
@@ -3141,7 +3187,7 @@ button:focus {outline:0 !important;}
   }
 
   .stamp-spacing {
-    padding: 450px 90px 0px 0px;
+    padding: 430px 90px 0px 0px;
   }
 
   #price-row {
@@ -3218,6 +3264,7 @@ button:focus {outline:0 !important;}
     display: inline;
   }
 
+
 }
 
 @media (min-width: 992px) {
@@ -3226,7 +3273,7 @@ button:focus {outline:0 !important;}
   }
 
   .product-description-padding {
-    margin: 175px 0px 0px 25px;
+    margin: 135px 0px 0px 25px;
   }
 
   .section {

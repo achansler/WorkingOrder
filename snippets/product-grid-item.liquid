@@ -18,12 +18,12 @@
     {% endcomment %}
     {% assign current_variant = product.selected_or_first_available_variant %}
 
-  <div class="section">
     <div id="product">
+    <div class="section">
       <div class="container-fluid product-container">
-        <div class="row margin-60">
-          <div class="col-lg-4 offset-5 hide-xs">
-            <h3 class="product-title absolute index-front-4" itemprop="name">{{ product.title }}</h3>
+        <div class="row">
+          <div class="col-lg-7 offset-5 hide-xs">
+            <h3 class="product-title absolute index-front-4 bold" itemprop="name">{{ product.title }}</h3>
           </div>
           <div class="text-center col-lg-6 offset-lg-0 col-md-8 offset-md-2" id="no-padding">
             {% comment %}
@@ -31,7 +31,7 @@
             {% endcomment %}
             <div class="hide-xs-show-md">
               {% if product.images.size > 1 %}
-                <ul class="product-single__thumbnails thumbnail-grid" id="ProductThumbs">
+                <ul class="product-single__thumbnails thumbnail-grid no-bullets" id="ProductThumbs">
                   {% for image in product.images %}
                   <li>
                     <a href="{{ image.src | img_url: 'master' }}" class="product-single__thumbnail">
@@ -68,9 +68,25 @@
                 </div>
               </div>
             </div>
-
-            <div class="product-description rte" itemprop="description">
-              {{ product.description }}
+            <div class="row">
+              <div class="col-12">
+                <div class="product-description rte" itemprop="description">
+                  {{ product.description }}
+                </div>
+              </div>
+            </div>
+            <div class="nutrition-margin">
+              <div class="row cream-background nutrition-tidbit-background">
+                <div class="col-4 border-right">
+                  <h6 class="bold nutrition-tidbit">12G<br class="rwd-break" /> PROTEIN</h6>
+                </div>
+                <div class="col-4 border-right">
+                  <h6 class="bold nutrition-tidbit">54<br class="rwd-break" /> CALORIES</h6>
+                </div>
+                <div class="col-4">
+                  <h6 class="bold nutrition-tidbit">NO SUGAR<br class="rwd-break" /> ADDED</h6>
+                </div>
+              </div>
             </div>
 
             <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -125,7 +141,7 @@
                         <h6>Select your size:</h6>
                       </div>
                       <div class="product-variants">
-                      	<ul>{% for variant in product.variants %}
+                      	<ul class="no-bullets">{% for variant in product.variants %}
                       		<li class="{% cycle 'odds': 'odd', 'even' %}">
                       			{% if variant.available %}<input id="radio_btn" type="radio" name="id" value="{{ variant.id }}" id="radio_{{ variant.id }}" {% if forloop.first %}checked="checked"{% endif %} />
                       				<label for="radio_{{ variant.id }}" class="radio">
@@ -183,7 +199,7 @@
                           {% if form.posted_successfully? %}
                           <h6 class="accent-text">Thanks! We'll add you to the waitlist and send you an email when this is available again.</h6>
                           {% else %}
-                          <h6 class="notify-me-text"><span class="bold">Give us your email address to join the waitlist.</span> We'll send you an email when {{ product.title }} is available again.</h6>
+                          <h6 class="notify-me-text"><span class="bold">Give us your email address to join the waitlist.</span><br /> We'll send you an email when {{ product.title }} is available again.</h6>
                           {% endif %}
                           {% if form.errors %}
                           <div class="error feedback accent-text">
@@ -269,7 +285,6 @@
       * E.g. multiple currencies http://docs.shopify.com/manual/configuration/store-customization/currencies-and-translations/currencies/how-to-toggle-between-two-currencies
 {% endcomment %}
 {{ 'option_selection.js' | shopify_asset_url | script_tag }}
-{{ 'app.js' | shopify_asset_url | script_tag }}
 <script>
   var selectCallback = function(variant, selector) {
     timber.productPage({
@@ -283,7 +298,7 @@
     new Shopify.OptionSelectors('productSelect', {
       product: {{ product | json }},
       onVariantSelected: selectCallback,
-      enableHistoryState: true
+      enableHistoryState: false
     });
 
     // Add label if only one product option and it isn't 'Title'. Could be 'Size'.

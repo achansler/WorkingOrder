@@ -8,119 +8,268 @@
     - http://schema.org/docs/gs.html
 
 {% endcomment %}
+  <div itemscope itemtype="http://schema.org/Product">
 
-<div itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+    <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'master' }}">
 
-  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
-  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+    {% comment %}
+      Get first variant, or deep linked one
+    {% endcomment %}
+    {% assign current_variant = product.selected_or_first_available_variant %}
 
-  {% comment %}
-    Get first variant, or deep linked one
-  {% endcomment %}
-  {% assign current_variant = product.selected_or_first_available_variant %}
+    <div id="product">
+    <div class="section">
+      <div class="container-fluid product-container">
+        <div class="row">
+          <div class="col-lg-7 offset-5 hide-xs">
+            <h1 class="h3 product-title absolute index-front-4 bold" itemprop="name">{{ product.title }}</h1>
+          </div>
+          <div class="text-center col-lg-6 offset-lg-0 col-md-8 offset-md-2" id="no-padding">
+            {% comment %}
+              Create thumbnails if we have more than one product image
+            {% endcomment %}
+            <div class="hide-xs-show-md">
+              {% if product.images.size > 1 %}
+                <ul class="product-single__thumbnails thumbnail-grid no-bullets" id="ProductThumbs">
+                  {% for image in product.images %}
+                  <li>
+                    <a href="{{ image.src | img_url: 'master' }}" class="product-single__thumbnail">
+                      <img class="thumbnail-styles" src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+            <div class="product-single__photos hide-xs-show-md" id="ProductPhoto">
+              {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+              <img class="image" src="{{ featured_image | img_url: 'master' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+            </div>
+          </div>
 
-  {% include 'breadcrumb' %}
+          <div class="col-12 hide-desktop">
+            {% if product.images.size > 1 %}
+              <div class="center slick-slider" id="ProductThumbsMobile">
+                {% for image in product.images %}
+                <div class="slider_img">
+                    <img class="product-single__thumbnail__mobile" src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
+                </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
 
-  <div class="grid product-single">
-    <div class="grid__item large--one-half text-center">
-      <div class="product-single__photos" id="ProductPhoto">
-        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-        <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-      </div>
+          <div class="col-lg-5 product-description-padding">
+            <div class="hide-desktop-show-md">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="product-title left" itemprop="name">{{ product.title }}</h2>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="product-description rte" itemprop="description">
+                  {{ product.description }}
+                </div>
+              </div>
+            </div>
+            <div class="nutrition-margin">
+              <div class="row cream-background nutrition-tidbit-background">
+                <div class="col-4 border-right">
+                  <h6 class="bold nutrition-tidbit">12G<br class="rwd-break" /> PROTEIN</h6>
+                </div>
+                <div class="col-4 border-right">
+                  <h6 class="bold nutrition-tidbit">54<br class="rwd-break" /> CALORIES</h6>
+                </div>
+                <div class="col-4">
+                  <h6 class="bold nutrition-tidbit">NO SUGAR<br class="rwd-break" /> ADDED</h6>
+                </div>
+              </div>
+            </div>
 
-      {% comment %}
-        Create thumbnails if we have more than one product image
-      {% endcomment %}
-      {% if product.images.size > 1 %}
-        <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="{{ shop.currency }}">
 
-          {% for image in product.images %}
-            <li class="grid__item one-quarter">
-              <a href="{{ image.src | img_url: 'large' }}" class="product-single__thumbnail">
-                <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-              </a>
-            </li>
-          {% endfor %}
+              <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
-        </ul>
-      {% endif %}
-    </div>
-
-    <div class="grid__item large--one-half">
-
-      <h1 itemprop="name">{{ product.title }}</h1>
-
-      <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="priceCurrency" content="{{ shop.currency }}">
-
-        <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
-
-        {% comment %}
-          ID addToCartForm is a selector for the ajax cart plugin
-        {% endcomment %}
-        <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
-
-          {% comment %}
-            Add product variants as a dropdown.
-              - By default, each variant (or combination of variants) will display as its own <option>
-              - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
-
-            You can leverage jQuery to add a callback on page load and each time the select element changes:
-              - Include option_selection.js (as seen at the bottom of this file)
-              - This allows you to use JavaScript anytime the variant dropdown changes
-              - This also separates out your variant options (ie. size, color, etc.) to separate select elements
-
-            For more information on products with multiple options, visit:
-              - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
-          {% endcomment %}
-          <select name="id" id="productSelect" class="product-single__variants">
-            {% for variant in product.variants %}
-              {% if variant.available %}
+              {% comment %}
+                ID addToCartForm is a selector for the ajax cart plugin
+              {% endcomment %}
+              {% if product.available %}
+                <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">
+              {% endif %}
 
                 {% comment %}
-                  Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                  Add product variants as a dropdown.
+                    - By default, each variant (or combination of variants) will display as its own <option>
+                    - To separate these into multiple steps, which we suggest, use option_selection.js (see below)
+
+                  You can leverage jQuery to add a callback on page load and each time the select element changes:
+                    - Include option_selection.js (as seen at the bottom of this file)
+                    - This allows you to use JavaScript anytime the variant dropdown changes
+                    - This also separates out your variant options (ie. size, color, etc.) to separate select elements
+
+                  For more information on products with multiple options, visit:
+                    - http://docs.shopify.com/support/your-website/themes/can-i-make-my-theme-use-products-with-multiple-options#update-product-liquid
                 {% endcomment %}
-                <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="visually-hidden">
+                      <select name="id" id="productSelect" class="product-single__variants">
+                        {% for variant in product.variants %}
+                          {% if variant.available %}
 
-              {% else %}
-                <option disabled="disabled">
-                  {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                </option>
+                            {% comment %}
+                              Note: if you use option_selection.js, your <select> tag will be overwritten, meaning what you have inside <option> will not reflect what you coded below.
+                            {% endcomment %}
+                            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}</option>
+
+                          {% else %}
+                            <option disabled="disabled">
+                              {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                            </option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="col-lg-12">
+                        <h6>Select your size:</h6>
+                      </div>
+                      <div class="product-variants">
+                      	<ul class="no-bullets">{% for variant in product.variants %}
+                      		<li class="{% cycle 'odds': 'odd', 'even' %}">
+                      			{% if variant.available %}<input id="radio_btn" type="radio" name="id" value="{{ variant.id }}" id="radio_{{ variant.id }}" {% if forloop.first %}checked="checked"{% endif %} />
+                      				<label for="radio_{{ variant.id }}" class="radio">
+                      					<strong>{{ variant.title | escape }}</strong> for <span class="bold-blue">{{ variant.price | money }}</span>
+                      					{% if variant.price < variant.compare_at_price %}<del>{{ variant.compare_at_price | money }}</del>{% endif %}
+                      				</label>
+                      			{% else %}
+                      				<input id="radio_btn" type="radio" name="id" value="{{ variant.id }}" id="radio_{{ variant.id }}" disabled="disabled" />
+                      				<label for="radio_{{ variant.id }}" class="radio">
+                      					<strong>{{ variant.title }}</strong> is sold out
+                      				</label>
+                      			{% endif %}
+                      		</li>
+                      	{% endfor %}</ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row visually-hidden">
+                  <div class="col-12">
+                    <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                    <span id="ProductPrice" class="h4 bold margin-bottom-none" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+                      {{ current_variant.price | money }}
+                    </span>
+                    {% if product.compare_at_price_max > product.price %}
+                      <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                      <p id="ComparePrice">
+                        {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
+                      </p>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="border">
+                    </div>
+                  </div>
+                </div>
+                <div class="row price_quantity_row">
+                  <div class="col-lg-3 col-3 soldOutHide">
+                    <label for="Quantity" class="quantity-selector visually-hidden">{{ 'products.product.quantity' | t }}</label>
+                    <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
+                  </div>
+                  <div class="col-lg-5 col-9 soldOutHide">
+                    <button type="submit" name="add" id="AddToCart" class="btn btn--full">
+                      <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                    </button>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-12">
+                      {% unless product.available %}
+                      <div id="sold-out">
+                        {% form 'contact' %}
+                          {% if form.posted_successfully? %}
+                          <h6 class="accent-text">Thanks! We'll add you to the waitlist and send you an email when this is available again.</h6>
+                          {% else %}
+                          <h6 class="notify-me-text"><span class="bold">Give us your email address to join the waitlist.</span><br /> We'll send you an email when {{ product.title }} is available again.</h6>
+                          {% endif %}
+                          {% if form.errors %}
+                          <div class="error feedback accent-text">
+                            <h6>Please provide a valid email address.</h6>
+                          </div>
+                          {% endif %}
+                          {% unless form.posted_successfully? %}
+                          <div id="notify-me-wrapper" class="clearfix">
+                            {% if customer %}
+                            <input name="contact[email]" value="{{ customer.email }}" />
+                            {% else %}
+                            <input style="float:left; width:250px;" required="required" type="email" name="contact[email]" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+                            {% endif %}
+                            <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
+                            <input style="float:left; margin-left:-1px; padding-top: 10px; padding-bottom: 9px; padding-left: 20px; padding-right: 20px;" class="btn styled-submit" type="submit" value="Send" />
+                          </div>
+                          {% endunless %}
+                          <script>
+                          jQuery('#notify-me').click(function() {
+                            {% if customer %}
+                            jQuery('#sold-out form').submit();
+                            {% else %}
+                            jQuery('#notify-me-wrapper').fadeIn();
+                            {% endif %}
+                            return false;
+                          } );
+                          </script>
+                        {% endform %}
+                      </div>
+                      {% endunless %}
+                    </div>
+                  </div>
+
+                </div>
+              {% if product.available %}
+                </form>
               {% endif %}
-            {% endfor %}
-          </select>
 
-          <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
-          <span id="ProductPrice" class="h2" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
-            {{ current_variant.price | money }}
-          </span>
+            </div>
 
-          {% if product.compare_at_price_max > product.price %}
-            <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
-            <p id="ComparePrice">
-              {{ 'products.product.compare_at' | t }} {{ current_variant.compare_at_price | money }}
-            </p>
-          {% endif %}
+            {% comment %}
+              If the user is on a collection product page (ie with /collections/collection-handle/products/product-handle)
+              in the URL, we can show next/previous links to other products in the collection.
+            {% endcomment %}
+            {% if collection %}
+              {% if collection.previous_product or collection.next_product %}
+                <p>
+                  {% if collection.previous_product %}
+                    <span class="left">
+                      {{ 'products.general.previous_product_html' | t | link_to: collection.previous_product }}
+                    </span>
+                  {% endif %}
+                  {% if collection.next_product %}
+                    <span class="right">
+                      {{ 'products.general.next_product_html' | t | link_to: collection.next_product }}
+                    </span>
+                  {% endif %}
+                </p>
+              {% endif %}
+            {% endif %}
 
-          <label for="Quantity" class="quantity-selector">{{ 'products.product.quantity' | t }}</label>
-          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="quantity-selector">
-
-          <button type="submit" name="add" id="AddToCart" class="btn">
-            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-          </button>
-        </form>
-
+          </div>
+        </div>
       </div>
-
-      <div class="product-description rte" itemprop="description">
-        {{ product.description }}
-      </div>
-
 
     </div>
   </div>
-
 </div>
+{% include 'ingredients' %}
+{% include 'quotes' %}
 
 {% comment %}
   To take advantage of a callback on the select dropdown, add option_selection.js
@@ -151,7 +300,7 @@
     new Shopify.OptionSelectors('productSelect', {
       product: {{ product | json }},
       onVariantSelected: selectCallback,
-      enableHistoryState: true
+      enableHistoryState: false
     });
 
     // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
@@ -164,4 +313,6 @@
       $('.selector-wrapper').hide();
     {% endif %}
   });
+
+
 </script>

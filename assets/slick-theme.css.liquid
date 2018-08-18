@@ -40,6 +40,8 @@
     border: none;
     outline: none;
     background: transparent;
+
+    z-index: 100;
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -67,11 +69,11 @@
 .slick-next:before
 {
     font-family: 'slick';
-    font-size: 20px;
+    font-size: 30px;
     line-height: 1;
 
-    opacity: .75;
-    color: white;
+    opacity: 1;
+    color: #222;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -79,11 +81,11 @@
 
 .slick-prev
 {
-    left: -25px;
+    left: 0px;
 }
 [dir='rtl'] .slick-prev
 {
-    right: -25px;
+    right: 0px;
     left: auto;
 }
 .slick-prev:before
@@ -97,12 +99,12 @@
 
 .slick-next
 {
-    right: -25px;
+    right: 10px;
 }
 [dir='rtl'] .slick-next
 {
     right: auto;
-    left: -25px;
+    left: 0px;
 }
 .slick-next:before
 {
