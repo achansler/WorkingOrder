@@ -2404,7 +2404,6 @@ label.error {
   position: relative;
   margin-top: $gutter;
   padding-top: $gutter;
-  border-top: 1px solid $colorBorder;
 
   &:first-child {
     margin-top: 0;
@@ -2620,8 +2619,15 @@ label.error {
 
 // CUSTOM STYLES BEGIN //
 
-.cart-info-background {
+.checkout-btn {
+  width: 100%;
+  margin-top: $gutter/2;
+}
+
+.checkout-summary {
   background-color: #ffffff;
+  padding: $gutter;
+  margin-top: $gutter;
 }
 
 .rwd-break{
@@ -2894,8 +2900,12 @@ button:focus {outline:0 !important;}
 }
 
 .fine-print {
-  padding: 0px 0px 8px 0px;
   font-size: em(12px);
+  margin-bottom: 0px;
+}
+
+.cart-total {
+  margin-bottom: 0px;
 }
 
 .ingredient-image {
@@ -3009,7 +3019,11 @@ button:focus {outline:0 !important;}
     font-size: em(20px);
   }
 
-  .rwd-break{
+  table.cart-size {
+    width: 70%;
+  }
+
+  .rwd-break {
     display: none;
   }
 
