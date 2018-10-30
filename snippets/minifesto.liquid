@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <div class="div-center">
+      <img class="logo-size" src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/website-logo.png?14163047977825030064" alt="working order collagen protein water logo"/>
+    </div>
+  </div>
+  <div class="section-email-page">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <ul class="no-bullets">
+            <li class="blue-100 minifesto-size">
+              Protein isn't about bulking up.
+            </li>
+            <li class="blue-200 minifesto-size padding-skew-1">
+              Protein isn't about scooping poweder out of giant tubs.
+            </li>
+            <li class="blue-400 minifesto-size padding-skew-2">
+              Protein isn’t about chugging a heavy milkshake.
+            </li>
+            <li class="blue-100 minifesto-size padding-skew-3">
+              Protein isn’t about harmful ingredients and chemicals.
+            </li>
+            <li class="blue-200 minifesto-size padding-skew-4">
+              Protein isn’t about getting jacked.
+            </li>
+            <li class="blue-500 minifesto-size padding-skew-5">
+              Protein isn’t unnatural.
+            </li>
+            <li class="blue-300 minifesto-size padding-skew-6">
+              Protein isn’t just for professional athletes.
+            </li>
+            <li class="blue-200 minifesto-size padding-skew-7">
+              Protein isn’t just for bros who lift.
+            </li>
+            <li class="blue-300 minifesto-size padding-skew-8">
+              Protein isn’t just for fitness freaks.
+            </li>
+            <li class="blue-600 minifesto-size padding-skew-9">
+              Protein can be different.
+            </li>
+            <li class="blue-500 minifesto-size padding-skew-10 section-email-page-2">
+              Protein is for people that want to do stuff a little bit better.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="section-email-page div-center bottom-padding">
+          <div class="col-12">
+            {% unless product.available %}
+            <div id="sold-out">
+              {% form 'contact' %}
+                {% if form.posted_successfully? %}
+                <h6 class="accent-text">Thanks! We'll add you to the waitlist.</h6>
+                {% else %}
+                <h6 class="notify-me-text">Join the waitlist.</h6>
+                {% endif %}
+                {% if form.errors %}
+                <div class="error feedback accent-text">
+                  <h6>Please provide a valid email address.</h6>
+                </div>
+                {% endif %}
+                {% unless form.posted_successfully? %}
+                <div id="notify-me-wrapper" class="clearfix">
+                  {% if customer %}
+                  <input name="contact[email]" value="{{ customer.email }}" />
+                  {% else %}
+                  <input class="newsletter_input_border newsletter_footer_input" style="float:left; width:250px;" required="required" type="email" name="contact[email]" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+                  {% endif %}
+                  <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
+                  <input style="float:left; margin-left:-1px; padding-top: 10px; padding-bottom: 9px; padding-left: 20px; padding-right: 20px;" class="btn styled-submit" type="submit" value="Send" />
+                </div>
+                {% endunless %}
+                <script>
+                jQuery('#notify-me').click(function() {
+                  {% if customer %}
+                  jQuery('#sold-out form').submit();
+                  {% else %}
+                  jQuery('#notify-me-wrapper').fadeIn();
+                  {% endif %}
+                  return false;
+                } );
+                </script>
+              {% endform %}
+            </div>
+            {% endunless %}
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
