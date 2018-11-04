@@ -1,7 +1,7 @@
 <div class="background-main">
   <div class="grid">
     <div class="grid__item text-center">
-      <img class="logo-size" src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/website-logo.png?14163047977825030064" alt="working order collagen protein water logo"/>
+      <img class="logo-size logo-padding" src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/website-logo.png?14163047977825030064" alt="working order collagen protein water logo"/>
     </div>
   </div>
   <div class="minifesto">
@@ -34,9 +34,6 @@
         <li class="blue-300 minifesto-size padding-skew-8">
           Protein isn’t just for fitness freaks.
         </li>
-        <li class="blue-600 minifesto-size padding-skew-9">
-          Protein can be different.
-        </li>
       </ul>
     </div>
   </div>
@@ -44,9 +41,12 @@
     <div class="minifesto_list">
       <ul class="no-bullets section-email-page-2">
         <li class="blue-500 minifesto-size padding-skew-10 circle-background-img circle-padding">
-          Protein is for people that want to do stuff a little bit better.
+          Protein is for people that just want to do stuff a little bit better.
         </li>
       </ul>
+      <div class="padding-skew-11">
+        <img class="logo-size" src="https://cdn.shopify.com/s/files/1/0029/2349/5490/files/working-order-logo-sign-off.png?10525412474632276446" alt="working order collagen protein water logo signoff"/>
+      </div>
     </div>
   </div>
   <div class="container">
@@ -75,10 +75,10 @@
                 {% if customer %}
                 <input name="contact[email]" value="{{ customer.email }}" />
                 {% else %}
-                <input style="float:left; width:225px;" required="required" type="email" name="contact[email]" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
+                <input style="float:left; width:225px; height:45px" required="required" type="email" name="contact[email]" class="styled-input{% if form.errors contains 'email' %} error{% endif %}" value="{{ contact.fields.email }}" />
                 {% endif %}
                 <input type="hidden" name="contact[body]" value="Please notify me when {{ product.title | escape }} becomes available." />
-                <input style="float:left; margin-left:-1px; padding-top: 10px; padding-bottom: 9px; padding-left: 20px; padding-right: 20px;" class="btn styled-submit" type="submit" value="Submit" />
+                <input style="float:left; margin-left:-1px; height:45px; padding-left: 20px; padding-right: 20px;" class="btn styled-submit" type="submit" value="Submit" />
               </div>
               {% endunless %}
               <script>
